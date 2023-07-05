@@ -39,8 +39,10 @@ The next example requires a bit more algebra.
     \end{align*}
 \end{proof}
 
-Generally speaking, reading these direct proofs is straight forward. It is usually pretty clear what axioms or theorems we may assume, so we use these like puzzle pieces to generate a proof. It is clear by reading the proof how the sequence of steps fit together logically to produce the desired result. \\
+Generally speaking, reading these direct proofs is straight forward. It is usually pretty clear what axioms or theorems we may assume, so we use these like puzzle pieces to generate a proof. It should also be clear by reading the proof how the sequence of steps fit together logically to produce the desired result. \\
 
+
+\clearpage
 However, sometimes it is challenging, or even impossible to find a way to do this. There are many cases where it is easier to prove a claim by assuming the contrary and showing that doing so produces a contradiction or logical fallacy. This is called a \textbf{proof by contradiction}\index{Proof by contradiction}. \\
 
 \begin{theorem}
@@ -56,37 +58,48 @@ Sometimes, these proofs seem a little bit like black magic; it is not blatantly 
 \begin{theorem}
     $\sqrt{2}$ is irrational.
 \end{theorem}
+\vspace{-3.5mm}
+
 \begin{proof}
     Assume instead that $\sqrt{2}$ is rational, and thus can be written in the form $\frac{p}{q}$ with $p$ and $q$ relatively prime integers with $q\neq 0$. Then, it follows that $\sqrt{2}=\frac{p}{q}\implies 2q^2=p^2$. Since the left side of the equation is even, the right side must be as well. This implies that $p$ is even (Why?). In this case, the right side of the equation must moreover be a multiple of 4, since squaring an even number gives this result. Thus, $q$ must be even. But if both $p$ and $q$ are even, then they are not relatively prime integers, a contradiction. 
 \end{proof}
 
 On the discussion of indirect proofs, when trying to prove a statement in the form ``if $p$, then $q$'' (or in logic notation $p\implies q$), it is occasionally easier to instead show ``if $q$ is false, then $p$ is false'' $(\sim q\implies \sim p)$. These two statements are logically equivalent. This is called the \textbf{law of the contrapositive} since $p\implies q$ and $\sim q \implies \sim p$ are \textbf{contrapositives} of each other. There will soon be a few examples where this is relevant (such as Theorem 0.2.1). \\
 
-One last method of proof we will discuss is \textbf{mathematical induction}\index{Mathematical induction} which is often useful when trying to show some propositional function $P(n)$ is true for all natural numbers. These proofs contain two primary parts; showing that $P(1)$ is true (or whatever the least natural number in the particular instance is), and then showing that $P(k)$ being true implies $P(k+1)$ is as well. In other words, this shows that $P(n)$ is true for all $n\geq 1$. Let's look at some examples. 
+One last method of proof we will discuss is \textbf{mathematical induction}\index{Mathematical induction} which is often useful when trying to show some propositional function $P(n)$ is true for all natural numbers. These proofs contain two primary parts; showing that $P(1)$ is true (or whatever the least natural number in the particular instance is), and then showing that $P(k)$ being true implies $P(k+1)$ istrue as well. In other words, this shows that $P(n)$ is true for all $n\geq 1$. Let's look at some examples. 
 
 \begin{theorem}
     The sum $1+2+\cdots +n=\frac{n(n+1)}{2}$ for $n\geq 1$
 \end{theorem}
+\vspace{-4mm}
 \begin{proof}
-    We will first show that this formula is true for $n=1$. Our sum on the left hand side would simply be $1$, and $\frac{n(n+1)}{2}=\frac{2}{2}=1$ on the right hand side as well. Now, assume that $1+2+\cdots +k=\frac{k(k+1)}{2}$ for some $k\geq 1$. Then, adding $k+1$ to both sides yields the following:
+    We will first show that this formula is true for $n=1$. Our sum on the left hand side would simply be $1$, and $\frac{n(n+1)}{2}=\frac{2}{2}=1$ on the right hand side as well. Now for the inductive case, assume that $1+2+\cdots +k=\frac{k(k+1)}{2}$ for some $k\geq 1$. Then, adding $k+1$ to both sides yields the following:
     \begin{align*}
        1+2+\cdots +k+(k+1)&=\frac{k(k+1)}{2}+(k+1) &\text{(addition postulate)} \\
          &=\frac{k(k+1)}{2} +\frac{2(k+1)}{2} &\text{(rewriting as fraction)}\\
          &=\frac{k(k+1)+2(k+1)}{2}  &\text{(combining fractions)}\\
          &=\frac{(k+1)(k+2)}{2}  &\text{(factoring)}\\
     \end{align*}
-    This shows that if the formula works for some $k\geq 1$, then it works for $k+1$. Thus, the formula holds for any natural number. 
+    This final expression is equal to $\frac{n(n+1)}{2}$ when $n=k+1$. (We have shown that if the formula works for some $k\geq 1$, then it works for $k+1$). Thus, the formula holds for any natural number. 
 \end{proof}
 
-Usually, the base case is straightforward, and the inductive case that follows requires more work. Let's try another example, one that is quite breezy and smooth!
+Usually, the base case is straightforward, and the inductive case that follows requires more work. Although this is not always the case. Let's try another example, one that is quite breezy and smooth!
+
 
 
 \begin{theorem}
-    The quantity $n^2+n$ is even for all natural numbers $n$
+    The sum of the first $n$ odd numbers is $n^2$
 \end{theorem}
-\vspace{-5mm}
+
+\vspace{-4mm}
 \begin{proof}
-    When $n=1$, the quantity $n^2+n=1+1=2$, which is even. For the inductive case, assume that $k^2+k=2m$ for some integers $k,m$. Then $(k+1)^2+(k+1) = (k^2 + 2k + 1) + (k+1) = (k^2+k)+2k+2 = 2m +2k+2 = 2(m+k+1)$. Since $m+k+1$ is an integer, we have shown $(k+1)^2+(k+1)$ is even, completing the proof.
+    We first need to render the statement into a mathematical equation to prove. The $n$-th odd number is $2n-1$, so the statement of the theorem is equivalent to $\sum_{i=1}^n 2i-1 = n^2$. For the base case, observe that when $n=1$, we have $2(1)-1 = 1^2$ which is indeed true. For the inductive case, first assume $\sum_{i=1}^k 2i-1 = k^2$ for some $k\in\N$. Then to get to $n=k+1$, we must simply add $2(k+1)-1$ to both sides. This yields the following:
+    \begin{align*}
+        \sum_{i=1}^{k} + 2(k+1) - 1 &= k^2 + 2(k+1) - 1 \\
+        \sum_{i=1}^{k+1} &= k^2 + 2k + 1 \\
+        &= (k+1)^2
+    \end{align*}
+    So, the sum of the first $k+1$ odd numbers is $(k+1)^2$ as desired. Thus the statement to prove holds for all natural numbers. 
 \end{proof}
 
 Now do these exercises as practice! Take a look at each one, and before beginning, determine which of the three methods may be most appropriate to utilize. If you ever come to a dead end, don't be discouraged; search for a new route if that is the case.
@@ -108,7 +121,7 @@ Now do these exercises as practice! Take a look at each one, and before beginnin
 \end{exercise}
 \vspace{-5mm}
 \begin{exercise}
-    Show that for an integer $i$, it follows that $\sum_{i=1}^n i^3 = \left(\sum_{i=1}^n i\right)^2$.
+    Show that for a positive integer $n$, it follows that $\sum_{i=1}^n i^3 = \left(\sum_{i=1}^n i\right)^2$.
 \end{exercise}
 \vspace{-5mm}
 \begin{exercise}
@@ -117,6 +130,10 @@ Now do these exercises as practice! Take a look at each one, and before beginnin
 \vspace{-5mm}
 \begin{exercise}
     If, for integers $x$ and $y$, $x^2+y^2$ is even, is it necessarily the case that $x+y$ is also even? 
+\end{exercise}
+\vspace{-5mm}
+\begin{exercise}[The Binomial Theorem]
+    For a positive integer $n$ and real numbers $x$ and $a$, it follows that $(x+a)^n=\sum_{r=0}^n \frac{n!}{(n-r)!r!} x^r a^{n-r}$.
 \end{exercise}
 \vspace{-5mm}
 \begin{exercise}
@@ -131,20 +148,45 @@ Now do these exercises as practice! Take a look at each one, and before beginnin
     Suppose we have an infinite set of points in the plane, and the distance between any two is always an integer. Show that all the points are collinear. 
 \end{exercise}
 
+\clearpage
+
 \section{Set Theory}
-Now we will discuss the notations regarding sets that will be used throughout this text. A \textbf{set}\index{Set} is an unordered collection of objects, which we individually call \textbf{elements}\index{Elements}. It is standard to use upper-case letters to symbolize sets, just as lower-case letters are used as variables for values. For example, we can write the set $A=\{0, 1, 2\}$. The set $A$ has three elements, so its \textbf{cardinality}\index{Cardinality} is 3. In set notation, we write $\#(A)=3$ to signify this. To say that $2$ is an element of $A$, we may write $2\in A$. Since $4$ is not in the set, we say $4\notin A$. The set that has no elements is called the \textbf{empty set}\index{Empty Set}, symbolized as $\varnothing$ or $\{\, \}$.\\
+Now we will discuss the notations regarding sets that will be used throughout this text. A \textbf{set}\index{Set} is an unordered collection of objects, which we individually call \textbf{elements}\index{Elements}.  It is standard to use upper-case letters to symbolize sets, just as lower-case letters are used as variables for values. For example, we can write the set $A=\{0, 1, 2\}$. Sets are well-defined, meaning that everything is either an element of the set, or not an element of the set. To say that $2$ is an element of $A$, we may write $2\in A$. Since $4$ is not in the set, we say $4\notin A$. The set that has no elements is called the \textbf{empty set}\index{Empty Set}, symbolized as $\varnothing$ or $\{\, \}$.\\
 
 We often use symbols to represent certain notably important sets. In this text, $\mathbb{N}=\{1,2,3,\cdots\}$, $\mathbb{Z}=\{\cdots -3, -2, -1, 0, 1,2,3,\cdots\}$, $\mathbb{Q}$ represents the rational numbers $\left\{\frac{p}{q}\ :\ p,q\in\mathbb{Z}\text{ and } q\neq 0\right\}$, and $\mathbb{R}$ signifies the real numbers. On some occasions, we reference the complex numbers as $\mathbb{C}$. \\
+
+The set $A=\{0,1,2\}$ has three elements, so its \textbf{cardinality}\index{Cardinality} is 3. In set notation, we write $\#(A)=3$ to signify this. For finite sets, the cardinality is simply the number of distinct elements. So, $\#(\{0,e,\pi,1,e,\pi\})=4$. For infinite sets, things obviously become more complicated. So we instead define two sets $A$ and $B$ to have equal cardinality if there is a bijective function $f\ :\ A\to B$, that is, every element of $B$ has exactly one element of $A$ that maps to it. \\
+
+\begin{exercise}
+    Prove that $\#(\{a,b,c,d\})  = \#(\{3,6,9,12\})$ have the same cardinality by creating a bijective function that maps one to the other. 
+\end{exercise}
+\vspace{-5mm}
+\begin{exercise}
+    Show that the even integers $2\mathbb{Z}$ have the same cardinality as the integers $\Z$. 
+\end{exercise}
+
+To many students' surprise, $\N$ and $\Q$ have the same cardinality. However, $\#(\R) > \#(\Q)$. Sets like $\N$, $\Z$, and anything else bijective to them are called \textbf{countably infinite}\index{Countably Infinite}. Those whose cardinality is greater are called \textbf{uncountably infinite}\index{Uncountably Infinite}, like $\R$, $\C$, and $\R^n$. It is currently unknown whether or not there exists a set whose cardinality is between these two. Or more formally, it is unknown whether there exists some set $A$ such that $\#(\N)<\#(A)<\#(\R)$. The assumption that no such set exists is called \textbf{the continuum hypothesis}\index{Continuum Hypothesis}. Although, it has been shown that with our current notions of arithmetic, it is impossible to prove or disprove the hypothesis. \\
+
+\begin{exercise}
+    Find a bijective function $f\ : \ \R \to [0,1]$
+\end{exercise}
+\vspace{-5mm}
+\begin{exercise}[Challenge]
+    Prove that no bijective function $f\ : \ \Z \to \R$ exists.
+\end{exercise}
 
 There are four important binary operations pertaining to sets. First, the \textbf{union}\index{Union} of sets $A$ and $B$, written as $A\cup B$, is a set that contains every element in either $A$ or $B$. So if $A=\{0,1,2\}$ and $B=\{0,2,4\}$, then $A\cup B=\{0,1,2,4\}$. Likewise, the \textbf{intersection}\index{Intersection} of sets $A$ and $B$ contains the elements found in both sets. So we write $A\cap B=\{0,2\}$. Thirdly, the \textbf{difference}\index{Difference of sets} $A \setminus B$ is the set of elements in $A$ that are not found in $B$. So $A \setminus B=\{1\}$ and $B \setminus A=\{4\}$. In symbols, we may write that for any sets $A$ and $B$, $A\setminus B=\{x\ :\ x\in A \text{ and } x\notin B\}$, to which we would say ``$A$ minus $B$ is the set of $x$ such that $x$ is in $A$ and $x$ is not in $B$''. And lastly, the \textbf{Cartesian product}\index{Cartesian product} of sets $A$ and $B$, denoted $A\times B$ is the set of all possible ordered pairs of elements from each set. Note that for such ordered pairs, the first element must be in $A$ and the second element must be in $B$. For example, if $A=\{a,b\}$ and $B=\{c,d,e\}$, then $A\times B = \{(a,c),(a,d),(a,e),(b,c),(b,d),(b,e)\}$. 
 
 \begin{definition}[Cartesian Product]
-    Given sets $A$ and $B$, the \textbf{cartesian product} $A\times B = \{(a,b)\ :\ a\in A, b\in B\}$. $A\times B$ is the set of all possible $(a,b)$ where $a$ is in $A$ and $b$ is in $B$.
+    Given sets $A$ and $B$, the \textbf{cartesian product}\index{Cartesian Product}  $A\times B = \{(a,b)\ :\ a\in A, b\in B\}$. $A\times B$ is the set of all possible $(a,b)$ where $a$ is in $A$ and $b$ is in $B$.
 \end{definition}
 
 \begin{exercise}
     What do you notice about the cardinalities of $X$, $Y$, and $X\times Y$? Can you create an identity that relates them?
 \end{exercise}
+
+To say that $A$ is a \textbf{subset}\index{Subset} of $B$ (or $A\subseteq B$) is to say that every element in $A$ also exists in $B$. Notice that every set is a subset of itself. If $A\subseteq B$ and $B\subseteq A$ for any sets $A$ and $B$, then $A=B$. So, it is usually useful--when attempting to show two sets are equal--to show that they are both subsets of each other. On the other hand, if $A$ is a $\textbf{proper subset}$\index{Proper subset} of $B$, i.e. $A\subset B$, then although every element of $A$ is in $B$, it is NOT the case that every element of $B$ is in $A$. 
+
 \begin{exercise}
     Prove that $(A\setminus B) \cap (B\setminus A) =\varnothing$ for any sets $A$ and $B$. 
 \end{exercise}
@@ -152,8 +194,6 @@ Hint: this may be a good time to practice proof by contradiction.
 \begin{exercise}
     Prove that $(A\setminus B) \cup (B\setminus A) = (A\cup B) \setminus (A\cap B)$
 \end{exercise}
-
-It may be helpful to formalize what we mean by ``equality'' when it comes to sets. But first, we must define a few propositional operators. To say that $A$ is a \textbf{subset}\index{Subset} of $B$ (or $A\subseteq B$) is to say that every element in $A$ also exists in $B$. Notice that every set is a subset of itself. If $A\subseteq B$ and $B\subseteq A$ for any sets $A$ and $B$, then $A=B$. So, it is sometimes useful--when attempting to show two sets are equal--to instead show that they are both subsets of each other. On the other hand, if $A$ is a $\textbf{proper subset}$\index{Proper subset} of $B$, i.e. $A\subset B$, then although every element of $A$ is in $B$, it is NOT the case that every element of $B$ is in $A$. \\
 
 \clearpage
 \begin{example}[Showing that $\varnothing\subseteq A$ for any set $A$]
@@ -201,15 +241,19 @@ Likewise, the \textbf{infimum}\index{Infimum} of a set is the greatest lower bou
 
 Remember that not all sets contain a maximum or minimum. For example, consider the set with elements of the sequence $\frac{1}{2},\frac{3}{4},\frac{7}{8},\cdots$. Although the terms become arbitrarily close to 1, the value of 1 does not exist in the set, thus it can not be the maximum. However, despite there not being a maximum, there does exist a supremum. The intention of adding this word to our vocabulary is to describe ``phantom maxima/minima'', even when a definitive minimum or maximum does not exist.\\
 
-In the case that no upper bound or lower bound exists for a set $S$, there does not exist a supremum or infimum (without any upper bounds, a smallest upper bound is impossible). Further, it is ONLY when a set is unbounded or empty that the supremum and infimum do not exist; otherwise they do. When it comes to finding (with proof) the infimum or supremum of a set, it is crucial that you first show it exists. And to do this, we show that the set is non-empty, and then show that it is bounded in the direction of choice (either a lower bound or an upper bound). 
+In the case that no upper bound or lower bound exists for a set $S$, there does not exist a supremum or infimum (without any upper bounds, a smallest upper bound is impossible). However, if a set is bounded and nonempty, then we are guarateed each of these. For example, if we know there exists a lower-bound for a nonempty set, then there must be some ``greatest'' lower-bound. This is known as the \textbf{axiom of choice}\index{Axiom of Choice}, so it is not something to prove here. When trying to show a set has a particular supremum or infimum, we must first show it exists. And to do this, we show that the set is non-empty, and then show that it is bounded in the desired direction (either a lower bound or an upper bound). 
 
 \begin{example}[Calculating the infimum]
     Let $0<x<1$ and $A=\{x^n\, :\, n\in\mathbb{N}\}$. Show that $\inf(A)=0$.\\
 
     \begin{proof}
-        Since $x\geq 0$, every $x^n$ in $A$ is also non-negative. Thus, $A$ has a lower bound of 0. Also, the set $A$ is not empty, so it follows that $A$ has an infimum. Let $\inf(A)=y$ and note that $y\geq 0$. Since $y$ must be less than $x^n$ for $n=0,1,2,\cdots$, we know $y\leq x^{n+1}$ for $n\in\mathbb{N}$, and therefore $\frac{y}{x}\leq x^n$ for $n\in\mathbb{N}$. Thus, $\frac{y}{x}$ is a lower bound for $A$ and $\frac{y}{x}\leq y$. Since $x<1$ and $y\geq 0$, that means $y$ must be 0.
+        Since $x\geq 0$, $x^n\geq 0$ for all $n\in\N$. This means that for all $a\in A$, $a\geq 0$, implying $A$ has a lower bound of 0. Also, the set $A$ is not empty, so it follows that $A$ has an infimum by the axiom of choice. Let $\inf(A)=y$ and note that $y\geq 0$. Since $y<x^n$ for $n=0,1,2,\cdots$, we know $y\leq x^{n+1}$ for $n\in\mathbb{N}$, and therefore $\frac{y}{x}\leq x^n$ for $n\in\mathbb{N}$. Thus, $\frac{y}{x}$ is a lower bound for $A$ and $\frac{y}{x}\leq y$. Since $x<1$ and $y\geq 0$, the only way this inequality may hold is when $y=0$.
     \end{proof}
 \end{example}
+
+\begin{exercise}
+    In the previous example, we concluded that given $\frac{y}{x}\leq y$, $x<1$, and $y\geq 0$, it must follow that $y=0$. Do the algebra on your own to show this explicitly.
+\end{exercise}
 
 \begin{exercise}
     In the context of the previous example, find $\sup(A)$. 
@@ -256,6 +300,7 @@ With these two new formulations of infimum and supremum, many other theorems inv
     Let $S$ be a set with positive elements, and let $T=\{\frac{1}{s}\ :\ s\in S\}$. Show that $\inf(T)=\frac{1}{\sup(S)}$ 
 \end{exercise}
 
+\clearpage
 
 \section{Metrics and Measures}
 
@@ -264,20 +309,20 @@ With these two new formulations of infimum and supremum, many other theorems inv
 
 In everyday life, we measure objects either by size, distance, area, weight, etc. Mathematics provides a way to generalize the notion of ``distance'' between positions in space, or even what it means to ``measure'' objects. First, we will define what it means for a function $d(x,y)$ to be a metric on a set $X$. A metric is another way of referring to a ``distance'' function.\\
 
-Recalling from geometry class, you were likely told that the distance from two points $(x_1,y_1)$ and $(x_2,y_2)$ is given by $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$. It is a function that takes in two points and outputs a real number. Or in essence, distance is a function $d$ that maps $\R^2\times\R^2\to\R$. But distance comes with a few particular properties. \\
+Recalling from geometry class, you were likely told that the distance from two points $(x_1,y_1)$ and $(x_2,y_2)$ is given by $\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}$. It is a function that takes in two points and outputs a real number. Or in essence, distance is a function $d$ that maps $\R^2\times\R^2\to\R$. But distance comes with a few particular properties. 
 
 \begin{itemize}
     \item (Identity Property) The distance between any point and itself is $0$.
     \item (Positivity Property) The distance between any two distinct points is positive. 
     \item (Commutative Property) The distance from $A$ to $B$ is the same as the distance from $B$ to $A$.
-    \item (Triangle Inequality) The distance from $A$ to $B$ plus the distance from $B$ to $C$ is not less than the distance from $A$ to $C$.\\
+    \item (Triangle Inequality) The distance from $A$ to $B$ plus the distance from $B$ to $C$ is not less than the distance from $A$ to $C$.
 \end{itemize}
 
 All four of these properties should be evidently intuitive, so try the following exercise before moving on.\\
 
 \begin{exercise}
     Render the properties above into formal mathematical statements. And then prove that the standard distance function $\R^2\times\R^2\to\R$ satisfies each of them.
-\end{exercise}\\
+\end{exercise}
 
 Just as it happens in many areas in mathematics, we try to generalize our intuitions about very concrete concepts into more abstract ideas. In fact, there exists a term for any function that obeys these axioms: a metric. So in the previous exercise, you have shown that the distance function is a metric on $\mathbb{R}^2$. The following definition will show how we generalize this notion.\\
 
@@ -289,7 +334,7 @@ Just as it happens in many areas in mathematics, we try to generalize our intuit
         \item (Commutativity) $d(x,y)=d(y,x)$. 
         \item (Triangle Inequality) $d(x,y)+d(y,z)\geq d(x,z)$. 
     \end{enumerate}
-\end{definition}
+\end{definition}\\
 
 
 The first three axioms are certainly obvious for our example of distance. But the triangle inequality naturally arises from the notion of distance as well. To get from $x$ to $z$, you make take as long as you would like to get there, adding detours to pass through $y$, but doing so will be no shorter in distance than going directly from $x$ to $z$ in a straight line. \\

@@ -5,7 +5,7 @@
 \end{summary}
 
 \section{Introduction to Fractals}
-Homo sapiens, as early as the Neanderthals, were able to recognize that paths that cover a longer distance would take more time to travel. Or more generally, not all paths that connect point $A$ to point $B$ are equal in length. However, even at this time, there did not exist any way to actually measure distances, let alone a numerical system to compare distances that differed. Contemporary humans have developed numerous methods to calculate the length of a given path. \\
+Homo sapiens, as early as the Neanderthals, were able to recognize that paths covering a longer distance would take more time to travel. Or more generally, not all paths that connect point $A$ to point $B$ are equal in length. However, even at this time, there did not exist any way to actually measure distances, let alone a numerical system to compare distances that differed. Contemporary humans have developed an innumerate number of methods to calculate the length of a given path. \\
 
 \begin{wrapfigure}{r}{0.6\textwidth}
   \begin{center}
@@ -14,10 +14,10 @@ Homo sapiens, as early as the Neanderthals, were able to recognize that paths th
   \caption{Approximating length of a curve}
 \end{wrapfigure}
 
-How would you choose to calculate the length of the curve to the right? When it comes to nonlinear paths, finding the length is not exactly the most intuitive task, although one possible method would be to lay out a string over the curve, pick up the string and hold it straight, and measure the resulting line. A more analytical take would be to place ``rulers'' of length $\eta$ along the curve to minimize the total number of rulers needed. By multiplying the number of rulers by the length of each $(\eta)$, we can generate an approximation for the length of the curve, which we denote $\lambda$. \\
+How would you choose to calculate the length of the curve to the right? When it comes to nonlinear paths, finding the length is not exactly as intuitive of holding a ruler against it, although one could lay out a string over the curve, pick up the string holding it straight, and measure the resulting line. A more mathematically analytical take would be to place ``rulers'' of length $\eta$ along the curve using as few as possible. By multiplying the number of rulers by the length of each $(\eta)$, we can generate an approximation for the length of the curve, which we denote $\lambda$. \\
 
 
-As $(\eta)$ becomes smaller and smaller, the number of rulers becomes increasingly large. Although, we expect that the product $\lambda$ would converge to a particular real value, the true length of the curve. Curves such that $\displaystyle \lim_{\eta\to0}\lambda$ exists are called \textbf{rectifiable curves}. The defining property of rectifiable curves is that it is possible to calculate their length. The reason such curves exist is because as you zoom into the curves closer and closer, each individual segment begins to appear linear. This is practically the whole foundation of calculus; we can find the tangent slope of a curve at any given point as long as zooming into that piece of the curves makes it appear linear. \\
+As $(\eta)$ becomes smaller and smaller, the number of rulers becomes increasingly large. Although, we expect that the product $\lambda$ would converge to a particular real value, the true length of the curve. Curves such that $\displaystyle \lim_{\eta\to0}\lambda$ exists are called \textbf{rectifiable curves}. The defining property of rectifiable curves is that it is possible to calculate their length. We are able to measure their lengths because as you zoom into the curves closer and closer, each individual segment begins to appear linear. This is practically the whole foundation of calculus; we see that zooming into a piece of a curve (where differentiable) makes it appear linear. \\
 
 \begin{wrapfigure}{r}{0.6\textwidth}
   \begin{center}
@@ -28,26 +28,44 @@ As $(\eta)$ becomes smaller and smaller, the number of rulers becomes increasing
 
 Curves that are nowhere rectifiable (meaning that no subset of them has a finite arc length) are called \textbf{fractal curves}, not to be confused with the general notion of a fractal which we will discuss later. Fractal curves can be contained in a finite, bounded space, yet have an infinite arc length, even when looking at a small portion of the curve. Despite expectation, as you zoom closer and closer into the image of a fractal curve, it does NOT ever begin to appear roughly linear. It will always remain \textbf{infinitely intricate}. In a calculus analogy, think of fractal curves as the graphs of functions that are everywhere continuous, but nowhere differentiable. \\
 
-An interesting phenomenon known as Richardson's Law states that ALL curves fall into one of these two categories shown in the graph above. A curve in space ($\E^n$) is either rectifiable (as $\eta$ becomes small, $\lambda$ converges to a finite value) or is a fractal curve (where the slope on the log-log graph is roughly linear). We will discuss Richardson's Law later in this text.
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{Images/Chap1/1.1.2.png}
+  
+  \captionof{figure}{The Riemann function defined as $\sum_{n=1}^\infty \frac{\sin(n^2x)}{n^2}$ is nowhere differentiable.}
+  \end{center}
 
-Before we continue, we may want to define a few terms that we have been using loosely so far. When we say that a curve (or more generally, a set) is bounded, what we mean is that is that the distance between any two points in the set are at most a finite distance from each other 
-
-\begin{definition}[Bounded Set]
-A subset $S$ of a metric space $(X,d)$ is \textbf{bounded} if there is some $r>0$ such that for any $a,b\in S$, then $d(a,b)<r$.
-\end{definition}
+Most curves fall into one of these two categories. For those that are rectifiable, as the rulers become small, the total length converges to a particular real number (notice that in Figure 1.2, the curve on the graph intersects the y-axis at a right angle). An interesting phenomenon known as Richardson's Law states that by graphing $\log\eta$ and $\log\lambda$ together, we yield something roughly linear for fractal curves. The slope of this line will have significance later when we discuss Richardson's Law.\\
 
 \begin{exercise}
-    
-    We noted earlier that fractal curves, even when bounded, do not have a finite arc length. Is it necessarily the case that bounded curves that are not fractals must have a finite arc length? Can you find a counterexample, a curve that appears smooth, locally, but does not have a finite arc length? 
+    Not all curves are in these two timcategories. Can you think of one? As a hint, try to draw a curve that has a finite number of points that are not rectifiable. 
 \end{exercise}
 
-Going forward, we should be clear by what a ``curve'' is. Unfortunately though, there is no one clear definition, although depending on the context, we can create one that fits our needs best. Here, we'll be speaking in terms of general topological spaces, although we are usually just working in the usual Euclidean topology. 
+Before we continue, we may want to define a few terms that we have been using loosely so far. When we say that a curve (or more generally, a set) is bounded, what we mean is that is that the distance between any two points in the set are at most a finite distance from each other.\\ 
+
+\begin{definition}[Bounded Set, Diameter of a Set]
+A subset $S$ of a metric space $(X,d)$ is \textbf{bounded} if there is some $r>0$ such that for any $a,b\in S$, $d(a,b)\leq r$. The \textbf{diameter} of a set is the smallest $r$ that makes this true. 
+\end{definition}
+\index{Bounded Set}
+\index{Diameter of a Set}
+
+Thus, the diameter of a set $(\subset \R^2)$ can be thought of as the diameter of the smallest circle enclosing the entire set. 
+\begin{exercise}
+    Calculate the diameter of the unit square defined by $[0,1]\times[0,1]$.
+\end{exercise}
+\begin{exercise}
+    Given real numbers $a<b$ and $c<d$, what would the diameter of the set $[a,b]\times [c,d]$ be?
+\end{exercise}
+\begin{exercise} 
+    We noted earlier that fractal curves, even when bounded, do not have a finite arc length. Is it necessarily the case that bounded curves that are not fractal curves must have a finite arc length? Can you find a counterexample, a curve that appears smooth, locally, but does not have a finite arc length? 
+\end{exercise}
+
+Going forward, we should be clear by what a ``curve'' is. Unfortunately though, there is no one clear definition, although depending on the context, we can create one that fits our needs best. Here, we'll be speaking in terms of general topological spaces, although we are usually just working in the usual Euclidean topology. \\
 
 \begin{definition}[Curve]
     Suppose $(X,T)$ is a topological space. Then a curve $\Gamma$ is a continuous mapping from the set $[0,1]$ into $(X,T)$.
 \end{definition}
 
-This definition may need some explanation. The mapping we are speaking of is just some function that takes the interval $[0,1]$ and assigns a point to it. For those who are interested in high mathematics, you may notice we do not specify that the function must be injective or surjective. By adding the condition of injectivity, we require that the curve does not intersect itself (or else, there is some point in $(X,T)$ that is reached at two distinct times in the curve's path). Ask yourself, why would we not specify surjectivity?\\
+This definition may need some explanation. The mapping we are speaking of is just some function that takes the interval $[0,1]$ and assigns a point to it. You may notice we do not specify that the function must be injective or surjective. By adding the condition of injectivity, we require that the curve does not intersect itself (or else, there is some point in $(X,T)$ that is reached at two distinct times in the curve's path). Ask yourself, why would we not specify surjectivity?\\
 
 The function $f\ :\ [0,1]\to\E^2$ defined as $f(x)=\left(\cos(2\pi x),\sin(2\pi x)\right)$ traces out the unit circle.\\
 
@@ -61,13 +79,13 @@ The function $f\ :\ [0,1]\to\E^2$ defined as $f(x)=\left(\cos(2\pi x),\sin(2\pi 
     \end{enumerate}
 \end{exercise}
 
-Defining infinite intricacy is a bit more challenging. In common terms, we want to describe curves that no matter how much you zoom into them, they always have a high amount of detail. Like explained earlier, in calculus, students look at curves that begin to appear linear when you zoom in. This is how you are able to find the derivative. For fractal curves however, we will use the following definition to describe their behavior when looking at small subsets.\\ 
+Defining infinite intricacy is a bit more challenging. In common terms, we want to describe curves that no matter how much you zoom into them, they always have a high amount of detail. Like we discussed earlier, calculus teaches students that curves usually begin to appear linear when you zoom in to small parts of them. This is how we are able to find the derivative. For fractal curves however, we will use the following definition to describe their behavior when looking at ``small'' subsets.\\ 
 
 \begin{wrapfigure}{r}{0.4\textwidth}
   \begin{center}
     \includegraphics[width=0.4\textwidth]{Images/1.1.3.png}
   \end{center}
-  \caption{The $\e$ neighborhood of $X\in\Gamma$}
+  \caption{The $\e$ \\neighborhood of $X\in\Gamma$}
 \end{wrapfigure}
 
 Here is a definition, using what we know about $\e$ neighborhoods\\
@@ -82,7 +100,7 @@ Here is a definition, using what we know about $\e$ neighborhoods\\
     For any continuous function $g\ :\ \R\to\R$, the graph generated by plotting all points $(x,g(x))$ creates a path in $\E^2$. 
     \begin{enumerate}
         \item Prove that this path is a curve.
-        \item A function is said to be \textbf{nowhere continuous} if for every $x$, there exists $\e>0$ such that for every $\delta>0$, there is a point $c$ such that $c\in V_\delta(x)$ but $ f(c)\notin V_\e(f(x))$. Show (even if informally) that such a graph is infinitely-intricate.
+        \item A function is said to be \textbf{nowhere continuous} if for every $x$, there exists some $\e>0$ such that for every $\delta>0$, there is a point $c$ such that $c\in V_\delta(x)$ but $ f(c)\notin V_\e(f(x))$. Show (even if informally) that such a graph is infinitely-intricate.
     \end{enumerate}
 \end{exercise}
 
