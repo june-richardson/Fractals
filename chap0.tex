@@ -95,7 +95,7 @@ Usually, the base case is straightforward, and the inductive case that follows r
 \begin{proof}
     We first need to render the statement into a mathematical equation to prove. The $n$-th odd number is $2n-1$, so the statement of the theorem is equivalent to $\sum_{i=1}^n 2i-1 = n^2$. For the base case, observe that when $n=1$, we have $2(1)-1 = 1^2$ which is indeed true. For the inductive case, first assume $\sum_{i=1}^k 2i-1 = k^2$ for some $k\in\N$. Then to get to $n=k+1$, we must simply add $2(k+1)-1$ to both sides. This yields the following:
     \begin{align*}
-        \sum_{i=1}^{k} + 2(k+1) - 1 &= k^2 + 2(k+1) - 1 \\
+        \sum_{i=1}^{k} 2(k+1) - 1 &= k^2 + 2(k+1) - 1 \\
         \sum_{i=1}^{k+1} &= k^2 + 2k + 1 \\
         &= (k+1)^2
     \end{align*}
@@ -138,6 +138,7 @@ Now do these exercises as practice! Take a look at each one, and before beginnin
 \vspace{-5mm}
 \begin{exercise}
     Find all functions $f : \N\to\N$ such that $$xf(y)+yf(x)=(x+y)f(x^2+y^2)$$
+    Here, $\N$ represents the set of natural numbers
 \end{exercise}
 \vspace{-5mm}
 \begin{exercise}
@@ -151,21 +152,25 @@ Now do these exercises as practice! Take a look at each one, and before beginnin
 \clearpage
 
 \section{Set Theory}
+
+\subsection{Set Notation}
+
+
 Now we will discuss the notations regarding sets that will be used throughout this text. A \textbf{set}\index{Set} is an unordered collection of objects, which we individually call \textbf{elements}\index{Elements}.  It is standard to use upper-case letters to symbolize sets, just as lower-case letters are used as variables for values. For example, we can write the set $A=\{0, 1, 2\}$. Sets are well-defined, meaning that everything is either an element of the set, or not an element of the set. To say that $2$ is an element of $A$, we may write $2\in A$. Since $4$ is not in the set, we say $4\notin A$. The set that has no elements is called the \textbf{empty set}\index{Empty Set}, symbolized as $\varnothing$ or $\{\, \}$.\\
 
-We often use symbols to represent certain notably important sets. In this text, $\mathbb{N}=\{1,2,3,\cdots\}$, $\mathbb{Z}=\{\cdots -3, -2, -1, 0, 1,2,3,\cdots\}$, $\mathbb{Q}$ represents the rational numbers $\left\{\frac{p}{q}\ :\ p,q\in\mathbb{Z}\text{ and } q\neq 0\right\}$, and $\mathbb{R}$ signifies the real numbers. On some occasions, we reference the complex numbers as $\mathbb{C}$. \\
+We often use symbols to represent certain notably important sets. In this text, $\mathbb{N}=\{1,2,3,\cdots\}$, $\mathbb{Z}=\{\cdots, -3, -2, -1, 0, 1,2,3,\cdots\}$, $\mathbb{Q}$ represents the rational numbers $\left\{\frac{p}{q}\ :\ p,q\in\mathbb{Z}\text{ and } q\neq 0\right\}$, and $\mathbb{R}$ signifies the real numbers. On some occasions, we reference the complex numbers as $\mathbb{C}$. \\
 
 The set $A=\{0,1,2\}$ has three elements, so its \textbf{cardinality}\index{Cardinality} is 3. In set notation, we write $\#(A)=3$ to signify this. For finite sets, the cardinality is simply the number of distinct elements. So, $\#(\{0,e,\pi,1,e,\pi\})=4$. For infinite sets, things obviously become more complicated. So we instead define two sets $A$ and $B$ to have equal cardinality if there is a bijective function $f\ :\ A\to B$, that is, every element of $B$ has exactly one element of $A$ that maps to it. \\
 
 \begin{exercise}
-    Prove that $\#(\{a,b,c,d\})  = \#(\{3,6,9,12\})$ have the same cardinality by creating a bijective function that maps one to the other. 
+    With $a,b,c,d$ all unequal, prove that $\#(\{a,b,c,d\})  = \#(\{3,6,9,12\})$ by creating a bijective function that maps one set to the other. 
 \end{exercise}
 \vspace{-5mm}
 \begin{exercise}
     Show that the even integers $2\mathbb{Z}$ have the same cardinality as the integers $\Z$. 
 \end{exercise}
 
-To many students' surprise, $\N$ and $\Q$ have the same cardinality. However, $\#(\R) > \#(\Q)$. Sets like $\N$, $\Z$, and anything else bijective to them are called \textbf{countably infinite}\index{Countably Infinite}. Those whose cardinality is greater are called \textbf{uncountably infinite}\index{Uncountably Infinite}, like $\R$, $\C$, and $\R^n$. It is currently unknown whether or not there exists a set whose cardinality is between these two. Or more formally, it is unknown whether there exists some set $A$ such that $\#(\N)<\#(A)<\#(\R)$. The assumption that no such set exists is called \textbf{the continuum hypothesis}\index{Continuum Hypothesis}. Although, it has been shown that with our current notions of arithmetic, it is impossible to prove or disprove the hypothesis. \\
+To many students' surprise, $\N$ and $\Q$ have the same cardinality. However, $\#(\R) > \#(\Q)$. Sets like $\N$, $\Z$, and anything else bijective to them are called \textbf{countably infinite}\index{Countably Infinite}. Those whose cardinality is greater are called \textbf{uncountably infinite}\index{Uncountably Infinite}, like $\R$, $\C$, and $\R^n$. It is currently unknown whether or not there exists a set whose cardinality is between these two. Or more formally, it is unknown whether there exists some set $A$ such that $\#(\N)<\#(A)<\#(\R)$. The assumption that no such set exists is called \textbf{the continuum hypothesis}\index{Continuum Hypothesis}. Although, it has been shown that with our usual notions of arithmetic, it is impossible to prove or disprove the hypothesis. This means that using our axioms of arithmetic, the continuum hypothesis may be true or false and not yield any contradictions. \\
 
 \begin{exercise}
     Find a bijective function $f\ : \ \R \to [0,1]$
@@ -175,7 +180,7 @@ To many students' surprise, $\N$ and $\Q$ have the same cardinality. However, $\
     Prove that no bijective function $f\ : \ \Z \to \R$ exists.
 \end{exercise}
 
-There are four important binary operations pertaining to sets. First, the \textbf{union}\index{Union} of sets $A$ and $B$, written as $A\cup B$, is a set that contains every element in either $A$ or $B$. So if $A=\{0,1,2\}$ and $B=\{0,2,4\}$, then $A\cup B=\{0,1,2,4\}$. Likewise, the \textbf{intersection}\index{Intersection} of sets $A$ and $B$ contains the elements found in both sets. So we write $A\cap B=\{0,2\}$. Thirdly, the \textbf{difference}\index{Difference of sets} $A \setminus B$ is the set of elements in $A$ that are not found in $B$. So $A \setminus B=\{1\}$ and $B \setminus A=\{4\}$. In symbols, we may write that for any sets $A$ and $B$, $A\setminus B=\{x\ :\ x\in A \text{ and } x\notin B\}$, to which we would say ``$A$ minus $B$ is the set of $x$ such that $x$ is in $A$ and $x$ is not in $B$''. And lastly, the \textbf{Cartesian product}\index{Cartesian product} of sets $A$ and $B$, denoted $A\times B$ is the set of all possible ordered pairs of elements from each set. Note that for such ordered pairs, the first element must be in $A$ and the second element must be in $B$. For example, if $A=\{a,b\}$ and $B=\{c,d,e\}$, then $A\times B = \{(a,c),(a,d),(a,e),(b,c),(b,d),(b,e)\}$. 
+There are four important binary operations pertaining to sets. First, the \textbf{union}\index{Union} of sets $A$ and $B$, written as $A\cup B$, is a set that contains every element in either $A$ or $B$. So if $A=\{0,1,2\}$ and $B=\{0,2,4\}$, then $A\cup B=\{0,1,2,4\}$. Likewise, the \textbf{intersection}\index{Intersection} of sets $A$ and $B$ contains the elements found in both sets. So we write $A\cap B=\{0,2\}$. Thirdly, the \textbf{difference}\index{Difference of sets} $A \setminus B$ is the set of elements in $A$ that are not found in $B$. So $A \setminus B=\{1\}$ and $B \setminus A=\{4\}$. In symbols, we may write that for any sets $A$ and $B$, $A\setminus B=\{x\ :\ x\in A \text{ and } x\notin B\}$, to which we would say ``$A$ minus $B$ is the set of $x$ such that $x$ is in $A$ and $x$ is not in $B$''. And lastly, the \textbf{Cartesian product}\index{Cartesian product} of sets $A$ and $B$, denoted $A\times B$ is the set of all possible ordered pairs of elements from each set. Note that for such ordered pairs, the first element must be in $A$ and the second element must be in $B$. For example, if $A=\{a,b\}$ and $B=\{c,d,e\}$, then $A\times B = \{(a,c),(a,d),(a,e),(b,c),(b,d),(b,e)\}$. \\
 
 \begin{definition}[Cartesian Product]
     Given sets $A$ and $B$, the \textbf{cartesian product}\index{Cartesian Product}  $A\times B = \{(a,b)\ :\ a\in A, b\in B\}$. $A\times B$ is the set of all possible $(a,b)$ where $a$ is in $A$ and $b$ is in $B$.
@@ -188,18 +193,19 @@ There are four important binary operations pertaining to sets. First, the \textb
 To say that $A$ is a \textbf{subset}\index{Subset} of $B$ (or $A\subseteq B$) is to say that every element in $A$ also exists in $B$. Notice that every set is a subset of itself. If $A\subseteq B$ and $B\subseteq A$ for any sets $A$ and $B$, then $A=B$. So, it is usually useful--when attempting to show two sets are equal--to show that they are both subsets of each other. On the other hand, if $A$ is a $\textbf{proper subset}$\index{Proper subset} of $B$, i.e. $A\subset B$, then although every element of $A$ is in $B$, it is NOT the case that every element of $B$ is in $A$. 
 
 \begin{exercise}
-    Prove that $(A\setminus B) \cap (B\setminus A) =\varnothing$ for any sets $A$ and $B$. 
+    Prove that $(A\setminus B) \cap (B\setminus A) =\varnothing$ for any sets $A$ and $B$. \\ Hint: this may be a good time to practice proof by contradiction.
+
 \end{exercise}
-Hint: this may be a good time to practice proof by contradiction.
+
+
+\begin{example}[Showing that $\varnothing\subseteq A$ for any set $A$]
+    In logic notation, showing that $S\subseteq T$ for any general sets $S$ and $T$ requires showing, by definition, that $\forall y\in S \implies y\in T$. So for this example investigation, we must show $\forall y\in\varnothing \implies y\in A$. But since $y\in\varnothing$ is false for every $y$ by the definition of $\varnothing$, every implication is true, and therefore $\forall y\in\varnothing \implies y\in B$, vacuously. This is arguably the most efficient way of showing $\varnothing\subseteq A$.
+\end{example}
+
 \begin{exercise}
     Prove that $(A\setminus B) \cup (B\setminus A) = (A\cup B) \setminus (A\cap B)$
 \end{exercise}
-
-\clearpage
-\begin{example}[Showing that $\varnothing\subseteq A$ for any set $A$]
-    In logic notation, showing that $S\subseteq T$ for any general sets $S$ and $T$ requires showing, by definition, that $\forall y, y\in S \implies y\in T$. So for this example investigation, we must show $\forall y, y\in\varnothing \implies y\in A$. But since $y\in\varnothing$ is false for every $y$ by the definition of $\varnothing$, every implication is true, and therefore $\forall y, y\in\varnothing \implies y\in B$, vacuously. This is arguably the most efficient way of showing $\varnothing\subseteq A$.
-\end{example}
-
+    \vspace{-4mm}
 \begin{exercise}
   Let $A = \{1, 2, 3\}$ and $B = \{2, 3\}$.
   Determine the following sets. \\
@@ -208,10 +214,12 @@ Hint: this may be a good time to practice proof by contradiction.
   (c) $A \setminus B$ \quad
   (d) $A \times B$
 \end{exercise}
+    \vspace{-4mm}
 \begin{exercise}
     To say $n\mid m$ means that $m$ is a multiple of $n$, or more formally, $n$ divides $m$. There exists some integer $k$ such that $m=nk$.\\ 
     Prove that $\{x\in\mathbb{Z}\, : \, 2\mid x\}\cap \{x\in\mathbb{Z}\, : \, 9\mid x\}\subseteq \{x\in\mathbb{Z}\ : \ 6\mid x\}$
 \end{exercise}
+    \vspace{-4mm}
 \begin{exercise}
     We define $x\equiv y (mod\, n)$ to mean there exists an integer $k$ such that $x+kn=y$. Show $\{(x,y)\in\mathbb{Z}\times\mathbb{Z}\, : \, x\equiv y (mod\, 6)\}$ is a subset of $\{(x,y)\in\mathbb{Z}\times\mathbb{Z}\, : \, x\equiv y (mod\, 3)\}$
 \end{exercise}
@@ -228,20 +236,96 @@ Hint: this may be a good time to practice proof by contradiction.
 \end{exercise}
 \
 
-Suppose we have a set of real numbers: $S=\{0,\frac{1}{2},\frac{2}{3},\frac{3}{4},\cdots\}$. If we were to treat the elements of $S$ as a sequence $s_i$, it would not be hard to see that the values are approaching $1$, i.e. $\lim_{i\to\infty}s_i=1$. And because no value of the sequence passes $1$, we may say that $1$ is an upper bound of $S$. Similarly, $\frac{3}{2}$ is an upper bound of $S$ because no element of $S$ is larger than $\frac{3}{2}$. However, the least upper bound, which we will call the \textbf{supremum}\index{Supremum} is $1$. We may notate this as $\sup(S)=1$ because $1$ is the smallest real number such that no value of $S$ is greater. \\
+When we finally introduce the definition of a fractal in this book, it will be clear why we emphasize having the ability to relate sets and geometric objects. We need a way to transform a set into an equivalent geometric object, and vice versa. For example, high school students think of graphing functions in highly geometric terms; the graph of the equation $y=3x+2$ is a straight line. In set notation however, we might instead say the graph of $y=3x+2$ is the set $\{(x,y)\in\R^2\,:\,y=3x+2\}$. It is the set of all points $(x,y)$ that satisfy the given equation. \\
 
-Likewise, the \textbf{infimum}\index{Infimum} of a set is the greatest lower bound. And in our case where we defined $S=\{0,\frac{1}{2},\frac{2}{3},\frac{3}{4},\cdots\}$, it is clear that $\inf(S)=0$ because no element of $S$ is lower than $0$, and $0$ is the largest number with this property. Notice that $0$ happens to be the minimum of $S$, but $S$ does not have a maximum. \clearpage
+How might we represent all the points that are NOT on the line $y=3x+2$? If we define $S=\{(x,y)\,:\,y=3x+2\}$, then we can write $\R^2 / S$ as the set of all points not on the line. This is the exact same as referring to the \textbf{complement} of $S$, notated as $S^c$. In particular, this refers to every element in some universal set $\U$ that is not in $S$. In order for this notation to work, it must be clear what $\U$ is. Since we defined $S$ as being points in $\R^2$, it is clear that $\R^2$ is our universal set. When it is not clear what $\U$ should be, it is best to use the usual set difference notation, but many times, we will go for the simpler set complement notation. \\
 
-\begin{wrapfigure}{r}{0.6\textwidth}
+\begin{definition}[Set Compliment]
+	For some known $\U$, the compliment of $S$, written $S^c$, is defined as \\$\U / S=\{t\in\U\,:\,t\notin S\}$
+\end{definition}\index{Set Compliment}
+
+\begin{theorem}
+	For any universal set $\U$ and some set $S\subseteq\U$, it follows $S\cup S^c=\U$
+\end{theorem}
+\begin{proof}
+	\begin{itemize}
+		Let $\U$ be given and assume some set $S\subseteq\U$. To show $S\cup S^c=\U$, we will prove $S\cup S^c\subseteq\U$ and $S\cup S^c\supseteq\U$
+		\item[$\subseteq$] Let $a\in S\cup S^c$. This means $a\in S$ or $a\in S^c$ must be true. If $a\in S$, then $a\in \U$ because $S\subseteq \U$. If $a\in S^c$, then by definition $a\in \{t\in\U\,:\,t\notin S\}$. As a result, $a\in \U$, showing that every element of $S\cup S^c$ is also an element of $\U$. 
+		\item[$\supseteq$] Let $a\in \U$. Because sets are well-defined, it follows that $a\in S$ or $a\notin S$ must be true. If $a\notin S$, then $a\in S^c$. Thus $a\in S$ or $a\in S^c$, showing that $a\in S\cup S^c$. 
+	\end{itemize}
+\end{proof}
+
+\begin{exercise}
+	Prove for any universal set $\U$ and some set $S\subseteq\U$, it follows $S\cap S^c=\varnothing$.
+\end{exercise}
+    \vspace{-3mm}
+
+\begin{exercise}
+	Show $\left(S^c\right)^c = S$. 
+\end{exercise}
+
+Remember that sets can contain anything, meaning sets may be collections of other sets. As an example, the \textbf{power set} of some set $S$ is the set of all subsets of $S$. If $S=\{1,2\}$, we may write $\mathcal{P}((\{1,2\})=\{\{\},\{1\},\{2\},\{1,2\}\}$, or more simply, $\mathcal{P}(S)=\{\varnothing,\{1\},\{2\},S\}$. This unary operation on sets will be brought up throughout the book in numerous settings. \\
+
+\begin{definition}[Power Set]
+	$\mathcal{P}(S)=\{T\,:\, T\subseteq S\}$. The \textbf{power set} of $S$ is the set of all subsets of $S$. 
+\end{definition}\index{Power Set}
+
+\begin{exercise}
+	Write out $\mathcal{P}(\{a,b,c\})$.
+\end{exercise}
+    \vspace{-3mm}
+
+\begin{exercise}
+	Prove $\#(\mathcal{P}(S))=2^{\#(S)}$.
+\end{exercise}
+    \vspace{-3mm}
+
+\begin{exercise}[Challenge]
+	Show $\#(\mathcal{P}(\N))=\#(\R)$.
+\end{exercise}
+\clearpage
+
+\begin{definition}[Disjoint sets]
+    Two sets $A$ and $B$ are \textbf{disjoint} if $A\cap B=\varnothing$. This means they share no elements in common.
+\end{definition}\index{Disjoint Sets}
+
+\begin{exercise}
+    Prove that the sets of even integers and odd integers are disjoint. 
+\end{exercise}
+    \vspace{-4mm}
+
+\begin{exercise}
+    Suppose $\sqrt{2}\Q$ is the set of all $\sqrt{2}r$ where $r\in\Q$. Prove $\sqrt{2}\Q$ and $\Q$ are disjoint. 
+\end{exercise}
+    \vspace{-4mm}
+
+\begin{exercise}
+    If $A$ and $B$ are disjoint and $B$ and $C$ are disjoint, is it the case that $A$ and $C$ are disjoint as well?
+\end{exercise}
+    \vspace{-4mm}
+
+\begin{exercise}
+    If $\#(A)=\#(B)$ and $\#(B)=\#(C)$, is it the case that $\#(A)=\#(C)$?
+\end{exercise}
+
+\subsection{Infimum and Supremum}
+
+Suppose we have a set of real numbers: $S=\{0,\frac{1}{2},\frac{2}{3},\frac{3}{4},\cdots\}$. If we were to treat the elements of $S$ as a sequence $s_i$, it would not be hard to see that the values are approaching $1$, i.e. $\lim_{i\to\infty}s_i=1$. And because no value of the sequence passes $1$, we may say that $1$ is an upper bound of $S$. Similarly, $\frac{3}{2}$ is an upper bound of $S$ because no element of $S$ is larger than $\frac{3}{2}$. However, the least upper bound, which we will call the \textbf{supremum}\index{Supremum}, is $1$. We may notate this as $\sup(S)=1$ because $1$ is the smallest real number such that no value of $S$ is greater. \\
+
+Likewise, the \textbf{infimum}\index{Infimum} of a set is the greatest lower bound. And in our case where we defined $S=\{0,\frac{1}{2},\frac{2}{3},\frac{3}{4},\cdots\}$, it is clear that $\inf(S)=0$ because no element of $S$ is lower than $0$, and $0$ is the largest number with this property. Notice that $0$ happens to be the minimum of $S$, but $S$ does not have a maximum. 
+
   \begin{center}
-    \includegraphics[width=0.6\textwidth]{Images/0sup.png}
-  \end{center}
+
+\begin{wrapfigure}{r}{1\textwidth}
+    \includegraphics[width=1\textwidth]{Images/Chap0/0sup.png}
   \caption{Geography of the supremum}
 \end{wrapfigure}
+  \end{center}
 
-Remember that not all sets contain a maximum or minimum. For example, consider the set with elements of the sequence $\frac{1}{2},\frac{3}{4},\frac{7}{8},\cdots$. Although the terms become arbitrarily close to 1, the value of 1 does not exist in the set, thus it can not be the maximum. However, despite there not being a maximum, there does exist a supremum. The intention of adding this word to our vocabulary is to describe ``phantom maxima/minima'', even when a definitive minimum or maximum does not exist.\\
+\clearpage
 
-In the case that no upper bound or lower bound exists for a set $S$, there does not exist a supremum or infimum (without any upper bounds, a smallest upper bound is impossible). However, if a set is bounded and nonempty, then we are guarateed each of these. For example, if we know there exists a lower-bound for a nonempty set, then there must be some ``greatest'' lower-bound. This is known as the \textbf{axiom of choice}\index{Axiom of Choice}, so it is not something to prove here. When trying to show a set has a particular supremum or infimum, we must first show it exists. And to do this, we show that the set is non-empty, and then show that it is bounded in the desired direction (either a lower bound or an upper bound). 
+
+In the case that no upper bound or lower bound exists for a set $S$, there does not exist a supremum or infimum (without any upper bounds, a smallest upper bound is impossible). However, if a set is bounded and nonempty, then we are guarateed both an inf and a sup. For example, if we know there exists a lower-bound for a nonempty set, then there must be some ``greatest'' lower-bound. This is known as the \textbf{axiom of choice}\index{Axiom of Choice}, so it is not something to prove here. When trying to show a set has a particular supremum or infimum, we must first show it exists. And to do this, we show that the set is non-empty, and then show that it is bounded in the desired direction (either a lower bound or an upper bound). \\
 
 \begin{example}[Calculating the infimum]
     Let $0<x<1$ and $A=\{x^n\, :\, n\in\mathbb{N}\}$. Show that $\inf(A)=0$.\\
@@ -252,13 +336,13 @@ In the case that no upper bound or lower bound exists for a set $S$, there does 
 \end{example}
 
 \begin{exercise}
-    In the previous example, we concluded that given $\frac{y}{x}\leq y$, $x<1$, and $y\geq 0$, it must follow that $y=0$. Do the algebra on your own to show this explicitly.
+    In the previous example, we concluded that given $\frac{y}{x}\leq y$, $x<1$, and $y\geq 0$, it must follow that $y=0$. Do the algebra on your own to show this by way of contradiction.
 \end{exercise}
-
+    \vspace{-3mm}
 \begin{exercise}
     In the context of the previous example, find $\sup(A)$. 
 \end{exercise}
-
+    \vspace{-3mm}
 \begin{exercise}
     Determine (if they exist)  $\sup(S),\inf(S),\max(S),$ and $\min(S)$ if \[S=\left\{x\in\R\ : \ \frac{1}{x-1}>2\right\}\]
 \end{exercise}
@@ -279,7 +363,7 @@ We are asked to prove a statement in the form $p\iff q$. Usually this means we p
     Suppose $A$ has an upper bound of $b$. Prove that $x=\sup(A)$ if and only if $\forall\varepsilon>0,\, \exists s\in S$ such that $s>x+\varepsilon$
 \end{exercise}
 
-With these two new formulations of infimum and supremum, many other theorems involving the infimum and supremum may be much easier to resolve. Here are a few.\\
+With these two new formulations of what infimum and supremum mean, many other theorems involving the infimum and supremum may be much easier to resolve. Here are a few, and you will notice it is most appropriate to use the results from Theorem 0.2.2 and Exercise 0.2.24 to solve them. \\
 
 \begin{theorem}
     For some nonempty set $A$, if $\max(A)$ exists, then $\sup(A)=\max(A)$. 
@@ -291,14 +375,28 @@ With these two new formulations of infimum and supremum, many other theorems inv
 \begin{exercise}
     Prove that if $A$ has a minimum, then $\inf(A)=\min(A)$.
 \end{exercise}
-
+    \vspace{-4mm}
 \begin{exercise}
     Prove that if $\#(A)=1$, then $\inf(A)=\sup(A)$.
 \end{exercise}
-
+    \vspace{-4mm}
 \begin{exercise}
-    Let $S$ be a set with positive elements, and let $T=\{\frac{1}{s}\ :\ s\in S\}$. Show that $\inf(T)=\frac{1}{\sup(S)}$ 
+    Let $S$ be a set with positive elements, and let $T=\left\{\frac{1}{s}\ :\ s\in S\right\}$. Show that $\inf(T)=\frac{1}{\sup(S)}$ 
 \end{exercise}
+    \vspace{-4mm}
+\begin{exercise}
+    Suppose $A$ and $B$ are two nonempty sets bounded below. Prove that $\inf(A\cup B)=\min\left\{\inf(A),\inf(B)\right\}$.
+\end{exercise}
+    \vspace{-4mm}
+\begin{exercise}
+    Can we say anything about $\inf(A\cap B)$ given each nonempty set is bounded below? Or is there a problem here?
+\end{exercise}
+    \vspace{-4mm}
+\begin{exercise}[Challenge]
+    Suppose $A_1,A_2,\cdots$ (countably many) are bounded above. Prove that $\sup(\bigcup_{i=1}^\infty A_i)=\sup\{\sup(A_i)\}$.
+\end{exercise}
+
+
 
 \clearpage
 
@@ -326,7 +424,7 @@ All four of these properties should be evidently intuitive, so try the following
 
 Just as it happens in many areas in mathematics, we try to generalize our intuitions about very concrete concepts into more abstract ideas. In fact, there exists a term for any function that obeys these axioms: a metric. So in the previous exercise, you have shown that the distance function is a metric on $\mathbb{R}^2$. The following definition will show how we generalize this notion.\\
 
-\begin{definition}[A metric on $X$]
+\begin{definition}[A Metric on $X$]
     A function $d: X\times X \to \R$ is a metric on $X$ if the following axioms hold for any $x,y,z\in X$:
     \begin{enumerate}
         \item (Identity) $d(x,x)=0$. 
@@ -334,20 +432,78 @@ Just as it happens in many areas in mathematics, we try to generalize our intuit
         \item (Commutativity) $d(x,y)=d(y,x)$. 
         \item (Triangle Inequality) $d(x,y)+d(y,z)\geq d(x,z)$. 
     \end{enumerate}
-\end{definition}\\
-
+\end{definition}\index{Metric}
+\vspace{3mm}
 
 The first three axioms are certainly obvious for our example of distance. But the triangle inequality naturally arises from the notion of distance as well. To get from $x$ to $z$, you make take as long as you would like to get there, adding detours to pass through $y$, but doing so will be no shorter in distance than going directly from $x$ to $z$ in a straight line. \\
 
+\begin{definition}[A Metric Space]
+    By treating a set and a metric on the set as one object, we produce a \textbf{metric space}. For example, by letting $d_1$ represent Euclidean distance, $(\R^2,d_1)$ is a metric space.
+\end{definition}\index{Metric space}
+\vspace{3mm}
 
 
+\begin{wrapfigure}{r}{0.5\textwidth}
+  \begin{center}
+    \includegraphics[width=0.45\textwidth]{Images/Chap0/metrics.png}
+  \end{center}
+  \caption{Given two points, the Euclidean distance (blue) versus the taxicab distance (red or green). Both the red and green paths have the same distance.}
+\end{wrapfigure}
 
+Notice that from our definition, a metric doesn't necessarily have to be the distance function. Although Euclidean distance in $\R^2$ (which we will now denote $d_1$) is a convenient example, there are plenty of other functions that satisfy the four given axioms. The Manhattan metric (or sometimes called the taxicab metric) is defined as follows: given two points $(x_1,y_1)$ and $(x_2,y_2)$ in $\R^2$, the taxicab metric $(d_2)$ is $|x_2-x_1|+|y_2-y_1|$. It gets its name because it is the distance between two points if you are only able to travel directly north or south, and east or west, as one would in a taxicab. \\
 
+The image above shows what this may look like. It is the distance needed to travel by only traveling east or west and north or south. Notice that there are many paths from one point to another, and the distance remains the same. \\
 
+\begin{exercise}
+    Prove that the taxicab metric $d_2$ is actually a metric
+\end{exercise}
+\vspace{-3mm}
 
+\begin{exercise}
+    On a piece of graphing paper, draw all the points $X\in\R^2$ such that $d_{\text{2}}(X,(0,0))=5$. Do the same for all points where $d_{\text{1}}(X,(0,0))=5$. What geometric shapes do these construct?
+\end{exercise}
 
+\begin{exercise}
+    Use what you noticed from the previous exercise to prove \\
+    $d_{\text{1}}(X,Y)\leq d_{\text{2}}(X,Y)$ for all $X,Y\in\R^2$.
+\end{exercise}
 
+\begin{wrapfigure}{l}{0.35\textwidth}
+  \begin{center}
+      \vspace{-\intextsep-5mm}
 
+    \includegraphics[width=0.3\textwidth]{Images/Chap0/Circle Metric.png}
+  \end{center}
+  \caption{Given two points, ($p_1$ to the right), $d$ is defined as the counter-clockwise angle from $p_1$ to $p_2$}
+\end{wrapfigure}
+
+Not all metric spaces are on the set $\R^2$, or even $\R$ for that matter. Consider the set $\mathbb{S}$, all the points on a circle. You may think of $\mathbb{S}$ as being all the points $(x,y)\in\R^2$ satisfying $x^2=y^2=1$. Given two points $p_1,p_2\in\mathbb{S}$, we can define a function $d(p_1,p_2)$ as being the angle in radians needed to travel counter-clockwise from $p_1$ to $p_2$. How might we explicitly write out this function?\\
+
+Let's define $\mathbb{S}$ as being all the points $(x,y)\in\R^2$ satisfying $x^2=y^2=1$. Also, let $p_1=(x_1,y_1)$ and $p_2=(x_2,y_2)$. From basic trigonometry, we know the angle made with $p_1$ and the $x-$axis is $\arctan(y_1/x_1)$. From this we can deduce that the angle made between the two points is $\arctan(y_2/x_2)-\arctan(y_1/x_1)$. 
+
+\begin{exercise}
+    Show (with a counterexample) why $\arctan(y_2/x_2)-\arctan(y_1/x_1)$ is NOT a metric on $\mathbb{S}$.
+\end{exercise}
+
+\begin{exercise}
+    Is it possible to alter our function slightly to create a metric? Or is there some critical issue with rotations about a circle?
+\end{exercise}
+
+Given any nonempty set $A$, we can create a ``trivial'' metric. Given $a,b\in A$, we have
+
+\begin{equation}
+d(a,b) = 
+\left\{
+    \begin{array}{lr}
+        0, & \text{if } a=b\\
+        1, & \text{otherwise }
+    \end{array}
+\right. 
+\end{equation}
+
+\begin{exercise}
+    Prove that this forms a metric on any nonempty set $A$.
+\end{exercise}
 
 \subsection{Measures}
 
@@ -362,7 +518,7 @@ Cardinality is convenient for finite sets. But for infinite sets, cardinality is
     \item By combining disjoint sets, their measures should add.
 \end{itemize}
 
-Like we did with metrics, these conditions will become our axioms for a \textbf{measure}.
+Like we did with metrics, these conditions will become our axioms for a \textbf{measure}. \\
 
 Before establishing this definition, there is one more thing we must discuss. Since we want our definition of a measure to allow for countable unions of sets, we must make sure doing so is defined within our set of reference. We will define a special kind of algebraic structure that preserves this
 
@@ -378,9 +534,11 @@ Before establishing this definition, there is one more thing we must discuss. Si
 This means 
 \\
 
+\section{Topology}
+
 
 \section*{Exercises}
-
+\setcounter{section}{5}
 
 \begin{exercise}
   Let $A = \{1, 3, 5, 7, 9\}$ and $B = \{2, 4, 6, 8, 10\}$.
@@ -400,12 +558,20 @@ This means
   (d) $(A \times B) \times C$
 \end{exercise}
 
-\section*{Problem}
+\section*{Project: \textbf{Convex Functions}}
+\setcounter{section}{6}
 
-\begin{problem}
-  Interpret the following set definition (Russell's paradox) and discuss
-  whether $X \in X$ or $X \notin X$:
-  \begin{equation}
-    X = \{x \mid x \notin x\}.
-  \end{equation}
-\end{problem}
+In high school geometry, you were likely introduced to the idea of convex polygons, that is a polygon whose internal angles each do not exceed $180^\circ$. Geometric shapes $R \subseteq \E^2$ in general may be convex if for any $x,y\in R$ and for any $t\in[0,1]$, it follows that $tx+(1-t)y\in R$ as well. Notice that we are treating $x$ and $y$ like vectors, which is pretty convenient in $\E^2\simeq \R^2$. The point $(a,b)$ multiplied by $t$ would simply be $(ta,tb)$. In essence, our definition means for a convex shape, if we were to draw a line connecting $x$ and $y$, the entire line will remain inside $R$. \\
+
+We may generalize this to any vector space (do not worry too much about us not introducing a definition of vector space, that is not as important here). We may say that for any vector space $S$ (which we may treat like a set), a set $C\subseteq S$ is convex if for all $x,y\in C$ and $t\in[0,1]$, $(1-t)x+ty\in C$.
+
+\begin{example}[A region in $\R^2$]
+    The unit square $[0,1]^2$ is convex
+    \begin{proof}
+        Let $P_1=(x_1,y_1)$ and $P_2=(x_2,y_2)$ be 2 points on or inside the unit square. This means that $x_1,y_1,x_2,y_2\in[0,1]$. Any point along the line segment connecting the two points may be described as \\$((1-t)x_1+tx_2,\ (1-t)y_1+ty_2)$ with $t\in[0,1]$. To show the unit square is convex, we must show $(1-t)x_1+tx_2\in[0,1]$ and $(1-t)y_1+ty_2\in[0,1]$. These two are identical so it is sufficient to just show the first.\\
+
+        Since $t\in[0,1]$, either $t\in[0,\frac{1}{2}]$ or $(1-t)\in[0,\frac{1}{2}]$. Without loss of generality, assume $t\in[0,\frac{1}{2}]$ which implies $(1-t)\in[\frac{1}{2},1]$. Then 
+        
+        Since $x_1,x_2\in[0,1]$, we know $x_2-x_1\in[-1,1]$. Call this quantity $X=x_2-x_1$. Then, $(1-t)x_1+tx_2 = x_1 + t(x_2-x_1)=x_1+tX$. 
+    \end{proof}
+\end{example}
