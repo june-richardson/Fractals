@@ -95,11 +95,11 @@ Usually, the base case is straightforward, and the inductive case that follows r
 \begin{proof}
     We first need to render the statement into a mathematical equation to prove. The $n$-th odd number is $2n-1$, so the statement of the theorem is equivalent to $\sum_{i=1}^n 2i-1 = n^2$. For the base case, observe that when $n=1$, we have $2(1)-1 = 1^2$ which is indeed true. For the inductive case, first assume $\sum_{i=1}^k 2i-1 = k^2$ for some $k\in\N$. Then to get to $n=k+1$, we must simply add $2(k+1)-1$ to both sides. This yields the following:
     \begin{align*}
-        \sum_{i=1}^{k} 2(k+1) - 1 &= k^2 + 2(k+1) - 1 \\
-        \sum_{i=1}^{k+1} &= k^2 + 2k + 1 \\
-        &= (k+1)^2
+        \sum_{i=1}^{k} (2i-1)\ + 2(k+1)-1 &= k^2 + 2(k+1)-1 \\
+        \sum_{i=1}^{k+1} (2i-1) &= k^2 + 2k + 1 \\
+        \sum_{i=1}^{k+1} (2i-1) &= (k+1)^2
     \end{align*}
-    So, the sum of the first $k+1$ odd numbers is $(k+1)^2$ as desired. Thus the statement to prove holds for all natural numbers. 
+    The last equation tells us that the sum of the first $k+1$ odd numbers is $(k+1)^2$ as desired. Thus the statement to prove holds for all natural numbers. 
 \end{proof}
 
 Now do these exercises as practice! Take a look at each one, and before beginning, determine which of the three methods may be most appropriate to utilize. If you ever come to a dead end, don't be discouraged; search for a new route if that is the case.
@@ -173,7 +173,7 @@ The set $A=\{0,1,2\}$ has three elements, so its \textbf{cardinality}\index{Card
 To many students' surprise, $\N$ and $\Q$ have the same cardinality. However, $\#(\R) > \#(\Q)$. Sets like $\N$, $\Z$, and anything else bijective to them are called \textbf{countably infinite}\index{Countably Infinite}. Those whose cardinality is greater are called \textbf{uncountably infinite}\index{Uncountably Infinite}, like $\R$, $\C$, and $\R^n$. It is currently unknown whether or not there exists a set whose cardinality is between these two. Or more formally, it is unknown whether there exists some set $A$ such that $\#(\N)<\#(A)<\#(\R)$. The assumption that no such set exists is called \textbf{the continuum hypothesis}\index{Continuum Hypothesis}. Although, it has been shown that with our usual notions of arithmetic, it is impossible to prove or disprove the hypothesis. This means that using our axioms of arithmetic, the continuum hypothesis may be true or false and not yield any contradictions. \\
 
 \begin{exercise}
-    Find a bijective function $f\ : \ \R \to [0,1]$
+    Find a bijective function $f\ : \ \R \to (0,1)$
 \end{exercise}
 \vspace{-5mm}
 \begin{exercise}[Challenge]
@@ -356,7 +356,8 @@ When it comes to proofs involving the infimum or supremum, we may want to utiliz
 We are asked to prove a statement in the form $p\iff q$. Usually this means we prove the statements $p\implies q$ and $q \implies p$. But in our proof, we will choose to prove $p\implies q$ and $\sim p \implies \sim q$ instead. 
 
 \begin{proof}
-     For the first part, assume $\inf(S)=x$. Then, $x+\varepsilon$ cannot be a lower bound for $S$ because there would be an element of $S$ larger than $x+\varepsilon$, a contradiction. For the second part, assume $x$ is a lower bound but not the infimum. This implies there is another lower bound $y>x$. Let $\varepsilon=y-x$. Then, there does not exist $s\in S$ such that $s<x+\varepsilon=y$, precisely as desired. 
+    ($p\implies q$)\ Assume $\inf(S)=x$. Then, $x+\varepsilon$ cannot be a lower bound for $S$ because there would be an element of $S$ larger than $x+\varepsilon$, a contradiction.\\
+   ($\sim p \implies \sim q$)\ Assume $x$ is a lower bound but not the infimum. This implies there is another lower bound $y>x$. Let $\varepsilon=y-x$. Then, there does not exist $s\in S$ such that $s<x+\varepsilon=y$, precisely as desired. 
 \end{proof}
 
 \begin{exercise}
@@ -507,15 +508,15 @@ d(a,b) =
 
 \subsection{Measures}
 
-We have a mathematical structure that describes the mapping of two objects to a positive number. Now, we will want to introduce a similar class of functions that maps a single set to a positive number. Before, our goal was to generalize our idea of distance (between elements), but now we want to generalize measuring the size of sets. 
+By defining a metric, we created a mathematical structure that describes the mapping of two objects to a positive number (or zero). Now, we will want to introduce a similar class of functions that maps a single object to a positive number. Before, our goal was to generalize our idea of distance (between elements), but now we want to generalize measuring the size of said objects, in particular, sets. \\
 
-Cardinality is convenient for finite sets. But for infinite sets, cardinality is no longer very descriptive. For instance, when considering the intervals $(0,1)$ and $(0,2)$, we see that $\#((0,1))=\#((0,2))$. This shows that the number of real numbers between $0$ and $1$, exclusive, is the same as the number of reals between $0$ and $2$. On an intuitive note, this feels absurd! The interval $(0,1)$ is completely contained within the inter $(0,2)$. But when we consider the lengths of these if they were graphed on the number line, the second would be twice as large as the first. Regardless of how we define our function that measures these sets, there are a few things we want to ensure. 
+Cardinality is convenient for finite sets; simply count the number of elements in the set. But for infinite sets, cardinality is no longer very descriptive. For instance, when considering the intervals $[0,1]$ and $[0,2]$---all the real numbers between $0$ and $1$ and between $0$ and $2$ respectively---we see that $\#([0,1])=\#([0,2])$. This shows that the number of real numbers between $0$ and $1$, inclusive, is equal to the number of reals between $0$ and $2$. On an intuitive note, this feels absurd! The interval $[0,1]$ is entirely contained within the interval $[0,2]$. If we were to consider the lengths of these sets when graphed on the number line, the second would be twice as large as the first. Perhaps we would like to generalize this to allow us to find the length of any subset of $\R$. Regardless of how we define our function that measures these sets, there are a few things we want to ensure. 
 
 \begin{itemize}
     \item The measure of a set that is empty should be $0$.
     \item Otherwise, the measure of a set should be positive.
     \item If a set is contained within another, the larger one should have a measure at least as large as the smaller.
-    \item By combining disjoint sets, their measures should add.
+    \item By combining disjoint sets (those that do not share any elements in common), their measures should add.
 \end{itemize}
 
 Like we did with metrics, these conditions will become our axioms for a \textbf{measure}. \\
@@ -534,7 +535,63 @@ Before establishing this definition, there is one more thing we must discuss. Si
 This means 
 \\
 
+Based on our earlier discussion, here is our formal definition of a measure:\\
+
+\begin{definition}[Measure]
+    Given some $\sigma$-algebra $\Sigma$, a function $\mu$ from $\Sigma$ to $\R_\infty$ is a \textbf{measure} if
+        \begin{itemize}
+            \item $\mu(\varnothing)=0$
+            \item For any $x\in\Sigma$, $\mu(x)\geq0$
+            \item Given $x_1,x_2,x_3,\cdots$, a countable collection of pairwise disjoint sets in $\Sigma$, $\mu\left(x_1\cup x_2\cup\cdots\right)=\mu(x_1)+\mu(x_2)+\cdots$
+        \end{itemize}
+\end{definition} \index{Measure}
+We refer to the set $\R_\infty$, sometimes written as $\R\cup\{\infty\}$; it is the set of real numbers, along with a symbol to represent infinite values. This is because some sets ought to have an infinite measure. The value of $\infty$ works as expected in the sense that adding it to any other value still yields $\infty$.\\
+
+The first two axioms in our definition are somewhat self-explanatory. Just like how we created a zero-rule for metrics, we have a rule for measures that guarantees an image of $0$, regardless of the function or algebra. Moreover, measures have a similar structure to metrics in the sense that the results are 
+
+Then give a brief overview of Lebesgue measure.\\
+
+Give formal definition of trivial measure and prove it is a measure.\\
+
+Introduce some properties of measures in general.\\
+
+Insert exercises.\\
+
+Explain that not all sets are Lebesgue measurable and give sources for more research.\\
+
 \section{Topology}
+
+In a general sense, topology is the branch of mathematics concerned with geometric properties of objects that are preserved under continuous transformations. This usually leads to the cliche illustration that states mathematicians perceive donuts and coffee mugs as the same object. Our objects may be geometric, or they could be just defined as sets, such as subsets of $\R^2$. But when there does exist a continuous transformation from one to the other (implying the transformation may be done in both directions), then we consider the objects $\textbf{homeomorphic}\index{Homeomorphic}$ and we call the function/transformation itself a \textbf{homeomorphism}\index{Homeomorphism}.\\
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{Images/Chap0/0.4.1.png}
+    \caption{Since there exists a continuous transformation from one object to the other, we consider the objects homeomorphic}
+    \label{fig:donut-coffee}
+\end{figure}
+
+We will often talk about ``neighborhoods'' of points. The \textbf{$\e$-neighborhood} of a point in a metric space is the set of all points less than distance $\e$ of said point. For example, in $\R$ with the usual metric, the $2$-neighborhood of $3$ is all real numbers less than $2$ away from $3$: that is $(1,5)$ or $\{x\in\R\, :\, 1<x<5\}$. 
+
+\begin{definition}[$\e$-neighborhood]
+    The \textbf{$\e$-neighborhood} of $x$ in metric space $(X,d)$ is sometimes written as $V_\e(x)$. It is the set $\{y\in X \, :\, d(x,y)<\e\}$
+\end{definition}\index{$\e$-neighborhood}
+
+One of the fundamental topological characteristics we are concerned with is whether a set may be \textbf{open} or \textbf{closed}. First, for a set to be open, we require the set to have no boundary. Or in other words, no matter where you are inside the set, there
+
+We define these terms as follows
+
+\begin{wrapfigure}{l}{1.0\textwidth}
+    \includegraphics[width=0.9\linewidth]{Images/Chap0/0.4.2.png}
+    \caption{Since there exists a continuous transformation from one object to the other, we consider the objects homeomorphic}
+    \label{fig:donut-coffee}
+\end{wrapfigure}
+
+\begin{definition}[Open Set]
+A set $X$ is \textbf{open} if for any point $x\in X$, there exists some $\e$ such that $V_\e(x)\subseteq X$. Or in other words, for all points in $X$, there exists an epsilon-neighborhood that is completely contained within $X$.     
+\end{definition}\index{Open set}
+
+
+
 
 
 \section*{Exercises}
