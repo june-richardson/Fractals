@@ -37,28 +37,11 @@
 %%%%%%%%%%%%%%%%%%%
 
 \usepackage{xargs}
-\usepackage[colorinlistoftodos]{todonotes}
+
 
 \makeatletter
 
-\@ifclasswith\class{working}{
-  \newcommandx\unsure[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
-  \newcommandx\change[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
-  \newcommandx\info[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
-  \newcommandx\improvement[2][1=]{\todo[linecolor=Plum,backgroundcolor=Plum!25,bordercolor=Plum,#1]{#2}}
 
-  \newcommand\listnotes{
-    \newpage
-    \listoftodos[Notes]
-  }
-}{
-  \newcommandx\unsure[2][1=]{}
-  \newcommandx\change[2][1=]{}
-  \newcommandx\info[2][1=]{}
-  \newcommandx\improvement[2][1=]{}
-
-  \newcommand\listnotes{}
-}
 
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -161,7 +144,7 @@
 % 4. Any extra parameters to pass directly to mdframed.
 \newcommand\createnewcoloredtheoremstyle[4]{
   \declaretheoremstyle[
-  headfont=\bfseries\sffamily\color{#2}, bodyfont=\normalfont, #3,
+  headfont=\bfseries\sffamily\color{#2}, bodyfont=\normalfont, #3, spacebelow=2\parsep, spaceabove=2\parsep,
   mdframed={
     linewidth=2pt,
     rightline=false, leftline=true, topline=false, bottomline=false,
@@ -367,8 +350,8 @@
 %  Edit Proof Environment  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
-\newenvironment{explanation}[1][\proofname]{\vspace{-10pt}\begin{expl}}{\end{expl}}
+\renewenvironment{proof}[1][\proofname]{\par\vspace{-10pt}\begin{replacementproof}}{\vspace{3pt}\end{replacementproof}}
+\newenvironment{explanation}[1][\proofname]{\vspace{10pt}\begin{expl}}{\end{expl}}
 
 \theoremstyle{definition}
 

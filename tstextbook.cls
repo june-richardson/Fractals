@@ -78,7 +78,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
     \begin{tikzpicture}[remember picture,overlay]
       % Background image
       \node[anchor=north west,inner sep=0pt] at (0,0)
-           {\includegraphics[width=\paperwidth]{background}};
+           {\includegraphics[width=\paperwidth]{banner.png}};
       % Chapter heading
       \draw[anchor=west, inner sep=0pt] (-0.1cm,-1.5cm) node
            [black,
@@ -118,7 +118,7 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
     \begin{tikzpicture}[remember picture,overlay]
       % Background image
       \node[anchor=north west,inner sep=0pt] at (0,0)
-           {\includegraphics[width=\paperwidth]{background}};
+           {\includegraphics[width=\paperwidth]{banner.png}};
       % Chapter heading
       \draw[anchor=west,inner sep=0pt] (-0.1cm,-1.5cm) node
            [black,
@@ -154,7 +154,11 @@ contents={\includegraphics[width=\paperwidth,height=\paperheight]{cover}}}
     \RequirePackage{titletoc}
 \setcounter{tocdepth}{2}
 
-
+\usepackage{enumitem,lipsum}
+\setlength{\parskip}{0.5\baselineskip}
+\usepackage{etoolbox}
+\AtBeginEnvironment{itemize}{\setlength\parskip{0pt}}
+\AfterEndEnvironment{itemize}{\vspace*{-\dimexpr\parskip\relax}}
 
 \titlecontents{chapter}[01cm]
 {\addvspace{14pt}\large\sffamily\bfseries}

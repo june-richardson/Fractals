@@ -5,7 +5,7 @@
 \end{summary}
 
 \section{Introduction to Fractals}
-Homo sapiens, as early as the Neanderthals, were able to recognize that paths covering a longer distance would take more time to travel. Or more generally, not all paths that connect point $A$ to point $B$ are equal in length. However, even at this time, there did not exist any way to actually measure distances, let alone a numerical system to compare distances that differed. Contemporary humans have developed an innumerate number of methods to calculate the length of a given path. \\
+Homo sapiens, as early as the Neanderthals, were able to recognize that paths covering a longer distance would take more time to travel. Or, more generally, not all paths that connect point $A$ to point $B$ are equal in length. However, even at this time, there did not exist any way to actually measure distances, let alone a numerical system to compare distances that differed. Contemporary humans have since developed countless methods to calculate the length of a given path. \par
 
 \begin{wrapfigure}{r}{0.6\textwidth}
   \begin{center}
@@ -14,10 +14,10 @@ Homo sapiens, as early as the Neanderthals, were able to recognize that paths co
   \caption{Approximating length of a curve}
 \end{wrapfigure}
 
-How would you choose to calculate the length of the curve to the right? When it comes to nonlinear paths, finding the length is not exactly as intuitive of holding a ruler against it, although one could lay out a string over the curve, pick up the string holding it straight, and measure the resulting line. A more mathematically analytical take would be to place ``rulers'' of length $\eta$ along the curve using as few as possible. By multiplying the number of rulers by the length of each $(\eta)$, we can generate an approximation for the length of the curve, which we denote $\lambda$. \\
+How would you choose to calculate the length of the black curve to the right? When it comes to non-linear paths, finding the length is not exactly as intuitive as holding a ruler against it, although one could lay out a string over the curve, pick up the string holding it straight, and measure the resulting line. A more mathematically analytical approach would be to place ``rulers'' of length $\eta$ along the curve using as few as possible. By multiplying the number of rulers by the length of each $(\eta)$, we can generate an approximation for the length of the curve, which we denote $\lambda$. \par
 
 
-As $(\eta)$ becomes smaller and smaller, the number of rulers becomes increasingly large. Although, we expect that the product $\lambda$ would converge to a particular real value, the true length of the curve. Curves such that $\displaystyle \lim_{\eta\to0}\lambda$ exists are called \textbf{rectifiable curves}. The defining property of rectifiable curves is that it is possible to calculate their length. We are able to measure their lengths because as you zoom into the curves closer and closer, each individual segment begins to appear linear. This is practically the whole foundation of calculus; we see that zooming into a piece of a curve (where differentiable) makes it appear linear. \\
+As $(\eta)$ becomes smaller and smaller, the number of rulers becomes increasingly large. Although, we expect that the product $\lambda$ would converge to a particular real value, the true length of the curve. Curves such that $\displaystyle \lim_{\eta\to0}\lambda$ exists are called \textbf{rectifiable curves}. The defining property of rectifiable curves is that it is possible to calculate their length. We are able to measure their lengths because as you zoom into the curves closer and closer, each individual segment begins to appear linear. This is practically the whole foundation of calculus; we see that zooming into a piece of a curve (where differentiable) makes it appear linear. \par
 
 \begin{wrapfigure}{r}{0.6\textwidth}
   \begin{center}
@@ -26,7 +26,7 @@ As $(\eta)$ becomes smaller and smaller, the number of rulers becomes increasing
   \caption{The two types of curves}
 \end{wrapfigure}
 
-Curves that are nowhere rectifiable (meaning that no subset of them has a finite arc length) are called \textbf{fractal curves}, not to be confused with the general notion of a fractal which we will discuss later. Fractal curves can be contained in a finite, bounded space, yet have an infinite arc length, even when looking at a small portion of the curve. Despite expectation, as you zoom closer and closer into the image of a fractal curve, it does NOT ever begin to appear roughly linear. It will always remain \textbf{infinitely intricate}. In a calculus analogy, think of fractal curves as the graphs of functions that are everywhere continuous, but nowhere differentiable. \\
+Curves that are nowhere rectifiable (meaning that no subset of them has a finite arc length) are called \textbf{fractal curves}, not to be confused with the general notion of a fractal, which we will discuss later. Fractal curves can be contained in a finite, bounded space, yet have an infinite arc length, even when looking at a small portion of the curve. Despite expectation, as you zoom closer and closer into the image of a fractal curve, it does NOT ever begin to appear roughly linear. It will always remain \textbf{infinitely intricate}. In a calculus analogy, think of fractal curves as the graphs of functions that are everywhere continuous but nowhere differentiable. \par
 
   \begin{center}
     \includegraphics[width=0.75\textwidth]{Images/Chap1/1.1.2.png}
@@ -34,16 +34,16 @@ Curves that are nowhere rectifiable (meaning that no subset of them has a finite
   \captionof{figure}{The Riemann function defined as $\sum_{n=1}^\infty \frac{\sin(n^2x)}{n^2}$ is nowhere differentiable.}
   \end{center}
 
-Most curves fall into one of these two categories. For those that are rectifiable, as the rulers become small, the total length converges to a particular real number (notice that in Figure 1.2, the curve on the graph intersects the y-axis at a right angle). An interesting phenomenon known as Richardson's Law states that by graphing $\log\eta$ and $\log\lambda$ together, we yield something roughly linear for fractal curves. The slope of this line will have significance later when we discuss Richardson's Law.\\
+Most curves fall into one of these two categories. For those that are rectifiable, as the rulers become small, the total length converges to a particular real number (notice that in Figure 1.2, the curve on the graph intersects the y-axis at a right angle). An interesting phenomenon known as Richardson's law states that by graphing $\log\eta$ and $\log\lambda$ together, we yield something roughly linear for fractal curves. The slope of this line will have significance later when we discuss Richardson's Law.\par
 
 \begin{exercise}
     Not all curves are in these two categories. Can you think of one? As a hint, try to draw a curve that has a finite number of points that are not rectifiable. 
 \end{exercise}
 
-Before we continue, we may want to define a few terms that we have been using loosely so far. When we say that a curve (or more generally, a set) is bounded, what we mean is that is that the distance between any two points in the set are at most a finite distance from each other.\\ 
+Before we continue, we may want to define a few terms that we have been using loosely so far. When we say that a curve (or more generally, a set) is bounded, what we mean is that the distances between any two points in the set are at most a finite distance from each other.\par 
 
 \begin{definition}[Bounded Set, Diameter of a Set]
-A subset $S$ of a metric space $(X,d)$ is \textbf{bounded} if there is some $r>0$ such that for any $a,b\in S$, $d(a,b)\leq r$. The \textbf{diameter} of a set is the smallest $r$ that makes this true. An alternative definition is as follows:
+A subset $S$ of a metric space $(X,d)$ is \textbf{bounded} if there is some $r>0$ such that for any $a,b\in S$, $d(a,b)\leq r$. The \textbf{diameter} of a set $S$ is the smallest $r$ that makes this true. An alternative definition is as follows:
 \[\text{diam}(S) = \sup\left\{ 
 d(a,b) \ : \ a,b\in S \right\}\]
 \end{definition}
@@ -61,15 +61,15 @@ Thus, the diameter of a set $(\subset \R^2)$ can be thought of as the diameter o
     We noted earlier that fractal curves, even when bounded, do not have a finite arc length. Is it necessarily the case that bounded curves that are not fractal curves must have a finite arc length? Can you find a counterexample, a curve that appears smooth, locally, but does not have a finite arc length? 
 \end{exercise}
 
-Going forward, we should be clear by what a ``curve'' is. Unfortunately though, there is no one clear definition, although depending on the context, we can create one that fits our needs best. Here, we'll be speaking in terms of general topological spaces, although we are usually just working in the usual Euclidean topology. \\
+Going forward, we should be clear by what a ``curve'' is. Unfortunately though, there is no one clear definition, although depending on the context, we can create one that fits our needs best. Here, we'll be speaking in terms of general topological spaces, although we are usually just working in the usual Euclidean topology. \par
 
 \begin{definition}[Curve]
     Suppose $(X,T)$ is a topological space. Then a \textbf{curve} $\Gamma$ is a continuous mapping from the set $[0,1]$ into $(X,T)$.
 \end{definition}
 
-This definition may need some explanation. The mapping we are speaking of is just some function that takes the interval $[0,1]$ and assigns a point to it. You may notice we do not specify that the function must be injective or surjective. By adding the condition of injectivity, we require that the curve does not intersect itself (or else, there is some point in $(X,T)$ that is reached at two distinct times in the curve's path). Ask yourself, why would we not specify surjectivity?\\
+This definition may need some explanation. The mapping we are speaking of is just some function that takes the interval $[0,1]$ and assigns a point to it. You may notice we do not specify that the function must be injective or surjective. By adding the condition of injectivity, we require that the curve does not intersect itself (or else, there is some point in $(X,T)$ that is reached at two distinct times in the curve's path). Ask yourself, why would we not specify surjectivity?\par
 
-The function $f\ :\ [0,1]\to\E^2$ defined as $f(x)=\left(\cos(2\pi x),\sin(2\pi x)\right)$ traces out the unit circle.\\
+The function $f\ :\ [0,1]\to\E^2$ defined as $f(x)=\left(\cos(2\pi x),\sin(2\pi x)\right)$ traces out the unit circle.\par
 
 \begin{exercise}
     Find functions $f\ :\ [0,1]\to\E^2$ that create each of the following:
@@ -77,31 +77,29 @@ The function $f\ :\ [0,1]\to\E^2$ defined as $f(x)=\left(\cos(2\pi x),\sin(2\pi 
         \item A circle of radius $r$ and center $(h,k)$
         \item The unit square with corners at $(0,0),(0,1),(1,1),(1,0)$
         \item The line $y=1$
-        \item The line with points $(a,b)$ and $(c,d)$
+        \item The line segment with points $(a,b)$ and $(c,d)$
     \end{enumerate}
 \end{exercise}
 
-Defining infinite intricacy is a bit more challenging. In common terms, we want to describe curves that no matter how much you zoom into them, they always have a high amount of detail. Like we discussed earlier, calculus teaches students that curves usually begin to appear linear when you zoom in to small parts of them. This is how we are able to find the derivative. For fractal curves however, we will use the following definition to describe their behavior when looking at ``small'' subsets.\\ 
+Defining infinite intricacy is a bit more challenging. In common terms, we want to describe curves that no matter how much you zoom into them, they always have a high amount of detail. Like we discussed earlier, calculus teaches students that curves usually begin to appear linear when you zoom in to small parts of them. This is how we are able to find the derivative. For fractal curves however, we will use the following definition to describe their behavior when looking at ``small'' subsets.\par 
 
 \begin{wrapfigure}{r}{0.4\textwidth}
   \begin{center}
     \includegraphics[width=0.4\textwidth]{Images/1.1.3.png}
   \end{center}
-  \caption{The $\e$ \\neighborhood of $X\in\Gamma$}
+  \caption{The $\e$ \parneighborhood of $X\in\Gamma$}
 \end{wrapfigure}
 
-Here is a definition, using what we know about $\e$-neighborhoods\\
+Here is a definition, using what we know about $\e$-neighborhoods\par
 
 \begin{definition}[Infinitely-intricate]
-    Suppose $\Gamma$ is a curve in $\E^n$. Then $\Gamma$ is \textbf{infinitely-intricate} if there exist uncountably many points  $X\in\Gamma$ such that for all $\e>0$, $V_\e(X)\cap \Gamma$ is not rectifiable.
+    Suppose $\Gamma$ is a curve in $\E^n$. Then $\Gamma$ is \textbf{infinitely-intricate} if for all $X\in\Gamma$ such that for all $\e>0$, $V_\e(X)\cap \Gamma$ is not rectifiable.
 \end{definition}
 \index{Infinitely-intricate}
 
 \clearpage
 
-
-
-Let's talk a little here.\\
+On the previous page, there is an image of the well-known dragon curve. This curve is a fractal curve because if we take a small $\e-$neighborhood around any given point, the portion of the curve inside will never be rectifiable, no matter what point is selected or how small $\e$ is.\par
 
 \begin{exercise}
     For any continuous function $g\ :\ \R\to\R$, the graph generated by plotting all points $(x,g(x))$ creates a path in $\E^2$. 
@@ -113,19 +111,60 @@ Let's talk a little here.\\
 
 
 
-So far, we have explored some of the mathematical nuances regarding curves that are not rectifiable, although this idea may be expanded to surfaces as well. For many surfaces that exist as subsets of $\E^3$, we may find the area that it takes up. But if a surface contains infinite intricacy, then it may hold that its surface area is not finite. 
+So far, we have explored some of the mathematical nuances regarding curves that are not rectifiable, although this idea may be expanded to surfaces as well. For many surfaces that exist as subsets of $\E^3$, we may find the area that it takes up. But if a surface contains infinite intricacy, then it may hold that its surface area is not finite. \par
+
+\begin{wrapfigure}{r}{0.45\textwidth}
+  \begin{center}
+    \vspace{-5mm}
+    \includegraphics[width=0.4\textwidth]{Images/Chap1/1.1.end.jpg}
+  \end{center}
+  \caption{Even a rock might as well have an infinite surface area.}
+\end{wrapfigure}
+
+Think about how someone might find the surface area of a mountain's landscape. At the lowest level, a geographer could begin calculating the surface area of a cone with the parameters equal to that of the mountain. However, such large structures tend to have ridges that add detail, likely increasing the surface area. Also, those ridges contain boulders, boulders contain rocks, rocks contain bumps, and the atoms making up the bumps contain additional detail. As we zoom in further and further, the need to increase the surface area of a mountain continues indefinitely. \par
+
+In essence, everything in our natural world may be considered a fractal. This is because even at the molecular level, physical objects contain a substantial amount of detail. The world's smoothest object is credited to by the Center for Precision Optics. Using a laser, they have constructed a nearly perfect sphere out of silicone. However, it still fails to uphold perfect precision, at least at the mathematical level. So even this sphere has an infinite surface area. 
+
+\begin{exercise}[Challenge]
+    What might an infinitely-intricate space behave like? This would be a subset of $\R^4$ that is constructed from some common object known to $\R^3$ such that the volume is infinite. Don't try too hard to visualize it, but try defining a set mathematically.
+\end{exercise}
 
 \section{The Lebesgue Measure}
 \Blindtext
 
 \section{Topological Dimension}
-\Blindtext
+The concept of dimension is a rather intuitive one. A line is one-dimensional, a plane would have dimension two, etcetera. It is also somewhat well-known that a finite set of points would be zero-dimensional. But for quite some time, mathematicians found difficulty in formally defining dimension. That was until the year 1911 when the mathematician Henri Lebesgue published a paper with an ingenious idea. \par
+
+Imagine taking a line segment (any line segment will do, but without loss of generality, consider the closed set $[0,1]$) and applying an open cover. For example, we could cover $[0,1]$ with the open intervals $(-0.3,0.7)\cup (0.5, 0.9)\cup (0.7,1.4)$. This satisfies an open cover since each set is open and $[0,1]$ is contained inside their union. However, we can do better be removing some of the overlap. The cover $(-0.02,0.62)\cup(0.61,0.85)\cup(0.84,1.03)$ would be considered a refinement. \par
+
+MAKE AN IMAGE HERE\par
+
+Since our sets are open, it is impossible to remove the overlap completely. Nonetheless, it is possible to ensure that every point in $[0,1]$ is in \textit{no more} than 2 sets. So, we will say the Lebesgue covering dimension of a line segment is $2-1=1$. \par
+
+
+Now consider the circle $\mathbb{S}^1$ which we define as the unit circle, that is all points $(x,y)$ satisfying $x^2+y^2=1$. We can cover the circle with open subsets of $\R^2$. But no matter how much we refine these open covers, there will be points existing in two of the covering sets. We can moreover ensure that no point would exist in three or more such sets. So the Lebesgue covering dimension of the unit circle is $2-1=1$. \par
+
+ANOTHER IMAGE!!\par
+
+Take the unit square (note that the unit square comes along with its interior whereas the unit circle in the previous paragraph did not). This is the interval $[0,1]\times[0,1]=[0,1]^2$. When applying an open cover via subsets of $\R^2$, we can ensure all points are in no more than three sets, however we can not do better than this. So the dimension of the unit square is $3-1=2$. Although it is difficult to imagine, a cube  \par
+
+The formal definition. \par
+
+some properties and proofs. Image of $\dim_{topo}$ is $\N\cup\{-1,0\}$. \par
+
+Lebesgue covering theorem. \par
+
+The topological dimension of fractal curves? \par
+
+Exercises. \par
+
+
 
 \clearpage
 
 \section{Self-Similarity and Dimension}
 
-In geometry (as opposed to the more abstract set-theory), an object is \textbf{self-similar} if a part of the object is geometrically similar to the whole. This means that you could cut out a particular portion and scale it up by a certain amount, yielding the original figure. The trivial example of a self-similar geometric object is simply that of a line segment. By cutting a line segment in half, we get two pieces that when scaled by a factor of 2, generate the original line segment. Not very interesting at all.\\
+In geometry (as opposed to the more abstract set-theory), an object is \textbf{self-similar} if a part of the object is geometrically similar to the whole. This means that you could cut out a particular portion and scale it up by a certain amount, yielding the original figure. The trivial example of a self-similar geometric object is simply that of a line segment. By cutting a line segment in half, we get two pieces that when scaled by a factor of 2, generate the original line segment. Not very interesting at all.\par
 
 \begin{wrapfigure}{r}{0.3\textwidth}
   \begin{center}
@@ -134,9 +173,9 @@ In geometry (as opposed to the more abstract set-theory), an object is \textbf{s
   \caption{A square is self-similar}
 \end{wrapfigure}
 
-Take a square for example, and split it into four pieces as shown to the right. Note that here, a ``square'' is referring to everything on the inside, not just the boundary. Each piece is a square (and all squares are similar to each other).  So we conclude that a square is self-similar. We could also break it into 9ths, and each square would be similar to the original by a dilation of 3.\\
+Take a square for example, and split it into four pieces as shown to the right. Note that here, a ``square'' is referring to everything on the inside, not just the boundary. Each piece is a square (and all squares are similar to each other).  So we conclude that a square is self-similar. We could also break it into 9ths, and each square would be similar to the original by a dilation of 3.\par
 
-You might notice that by scaling down a square by a dilation factor of $\frac{1}{n}$, you can fit exactly $n^2$ squares inside the original. The exponent of $2$ is particularly important, it represents the \textbf{fractal dimension} of the object in question. For most ordinary objects, this number is a whole number. \\
+You might notice that by scaling down a square by a dilation factor of $\frac{1}{n}$, you can fit exactly $n^2$ squares inside the original. The exponent of $2$ is particularly important, it represents the \textbf{fractal dimension} of the object in question. For most ordinary objects, this number is a whole number. \par
 
 \begin{wrapfigure}{r}{0.15\textwidth}
   \begin{center}
@@ -167,7 +206,7 @@ When considering a cube, we may insert $n^3$ cubes that are scaled down by a fac
     Show that a line ($\R$), a rectangle ($[0,a]\times[0,b] \ a,b>0$), and a triangle (space enclosed by the lines $x=0$, $y=0$, and $x+y=1$)  are self-similar.
 \end{exercise}
 
-But in our interest of fractals, we are concerned with objects that may be self-similar, but whose dimension is non-integral, not a whole number. After all, the term fractal, coined by Benoit Mandelbrot in 1975, was named to recognize that these objects (oftentimes) have a \emph{fractional dimension}. Now consider the Cantor Set, a subset of the interval $[0,1]$ constructed recursively in the following manner. Define $C_0$ to be the interval $[0,1]$. Then for each $n\geq 1$, let $\ds C_n = \frac{C_{n-1}}{3}\cup \left(\frac{2}{3} + \frac{C_{n-1}}{3}\right)$. Then, the Cantor Set is $\ds \mathcal{C}=\lim_{n\to\infty} C_n$. \\
+But in our interest of fractals, we are concerned with objects that may be self-similar, but whose dimension is non-integral, not a whole number. After all, the term fractal, coined by Benoit Mandelbrot in 1975, was named to recognize that these objects (oftentimes) have a \emph{fractional dimension}. Now consider the Cantor Set, a subset of the interval $[0,1]$ constructed recursively in the following manner. Define $C_0$ to be the interval $[0,1]$. Then for each $n\geq 1$, let $\ds C_n = \frac{C_{n-1}}{3}\cup \left(\frac{2}{3} + \frac{C_{n-1}}{3}\right)$. Then, the Cantor Set is $\ds \mathcal{C}=\lim_{n\to\infty} C_n$. \par
 
 \begin{wrapfigure}{r}{0.4\textwidth}
   \begin{center}
@@ -176,7 +215,7 @@ But in our interest of fractals, we are concerned with objects that may be self-
   \caption{Pseudo-Cantor Sets}
 \end{wrapfigure}
 
-To the right, you can see the first few iterations of $C_n$. As $n$ continues to increase, you'll notice that the set appears to be self similar. The half to the left looks like a scaled down version of the entire thing. In fact, the way $C_n$ is defined is by taking $C_{n-1}$, scaling it down by a third, making a second copy, and positioning that $2/3$ to the right. Using our intuition from earlier to find the fractal dimension of self-similar objects, the dimension of $\mathcal{C}$ is the value $D$ such that $3^D = 2$. This happens to be $\log_3(2)$ or $ \frac{\ln 2}{\ln 3} \approx 0.6309$. \\
+To the right, you can see the first few iterations of $C_n$. As $n$ continues to increase, you'll notice that the set appears to be self similar. The half to the left looks like a scaled down version of the entire thing. In fact, the way $C_n$ is defined is by taking $C_{n-1}$, scaling it down by a third, making a second copy, and positioning that $2/3$ to the right. Using our intuition from earlier to find the fractal dimension of self-similar objects, the dimension of $\mathcal{C}$ is the value $D$ such that $3^D = 2$. This happens to be $\log_3(2)$ or $ \frac{\ln 2}{\ln 3} \approx 0.6309$. \par
 
 This is mind boggling! We have just taken a look at a set whose dimension is more than $0$, but less than $1$. Our understanding of topological dimension only works for integral values, which begs the question of how one would find the topological dimension of these sets. 
 
@@ -197,7 +236,7 @@ Definition of dimension
   \caption{The 4th iteration of Cantor Dust}
 \end{wrapfigure}
 
-To the right, we have a fractal by the name Cantor Dust. It is the next-higher-dimension set analogous to the Cantor Set. Really, what we have in the image is instead the 4th pseudo-fractal. Notice that we can generate this image by first graphing $\mathcal{C}_4$ along the $x-$axis and $\mathcal{C}_4$ along the $y-$axis. Their Cartesian product (points $(x,y)$ that such that $x\in\mathcal{C}_4$ and $y\in\mathcal{C}_4$) is shaded black. So, we can define the set to our right as $\mathcal{C}_4\times \mathcal{C}_4$ or $\mathcal{C}^2_4$. \\
+To the right, we have a fractal by the name Cantor Dust. It is the next-higher-dimension set analogous to the Cantor Set. Really, what we have in the image is instead the 4th pseudo-fractal. Notice that we can generate this image by first graphing $\mathcal{C}_4$ along the $x-$axis and $\mathcal{C}_4$ along the $y-$axis. Their Cartesian product (points $(x,y)$ that such that $x\in\mathcal{C}_4$ and $y\in\mathcal{C}_4$) is shaded black. So, we can define the set to our right as $\mathcal{C}_4\times \mathcal{C}_4$ or $\mathcal{C}^2_4$. \par
 
 Think about how each step is generated. You first start with the unit square $\mathcal{C}^2_0$, and for each iteration, you remove a ``+'', the middle third on both axes, to quadruple the number of squares. Each square is $\frac{1}{3}$ the length of the squares in the previous iteration, so each of their measures is $\frac{1}{9}$ of that in the previous step. But by quadrupling their count, the measure of each next iteration is $\frac{4}{9}$ as that of the previous. 
 
